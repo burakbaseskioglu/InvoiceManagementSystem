@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "mpmk5/bG7an3AC9tMEP+LBwMQnmoSKzUjVehEL31u0k=",
+  "Source": "InvoiceManagementSystem.WebAPI",
+  "BasePath": "_content/InvoiceManagementSystem.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

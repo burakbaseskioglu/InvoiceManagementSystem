@@ -1,0 +1,12 @@
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\bin\Debug\net7.0\InvoiceManagementSystem.Core.deps.json
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\bin\Debug\net7.0\InvoiceManagementSystem.Core.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\bin\Debug\net7.0\InvoiceManagementSystem.Core.pdb
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\obj\Debug\net7.0\InvoiceManagementSystem.Core.csproj.AssemblyReference.cache
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\obj\Debug\net7.0\InvoiceManagementSystem.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\obj\Debug\net7.0\InvoiceManagementSystem.Core.AssemblyInfoInputs.cache
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\obj\Debug\net7.0\InvoiceManagementSystem.Core.AssemblyInfo.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\obj\Debug\net7.0\InvoiceManagementSystem.Core.csproj.CoreCompileInputs.cache
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\obj\Debug\net7.0\InvoiceManagementSystem.Core.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\obj\Debug\net7.0\refint\InvoiceManagementSystem.Core.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\obj\Debug\net7.0\InvoiceManagementSystem.Core.pdb
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Core\obj\Debug\net7.0\ref\InvoiceManagementSystem.Core.dll

@@ -1,0 +1,270 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Business\\InvoiceManagementSystem.Business.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Business\\InvoiceManagementSystem.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Business\\InvoiceManagementSystem.Business.csproj",
+        "projectName": "InvoiceManagementSystem.Business",
+        "projectPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Business\\InvoiceManagementSystem.Business.csproj",
+        "packagesPath": "C:\\Users\\Burak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.DataAccess\\InvoiceManagementSystem.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.DataAccess\\InvoiceManagementSystem.DataAccess.csproj"
+              },
+              "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Entity\\InvoiceManagementSystem.Entity.csproj": {
+                "projectPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Entity\\InvoiceManagementSystem.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Core\\InvoiceManagementSystem.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Core\\InvoiceManagementSystem.Core.csproj",
+        "projectName": "InvoiceManagementSystem.Core",
+        "projectPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Core\\InvoiceManagementSystem.Core.csproj",
+        "packagesPath": "C:\\Users\\Burak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.DataAccess\\InvoiceManagementSystem.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.DataAccess\\InvoiceManagementSystem.DataAccess.csproj",
+        "projectName": "InvoiceManagementSystem.DataAccess",
+        "projectPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.DataAccess\\InvoiceManagementSystem.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Burak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Core\\InvoiceManagementSystem.Core.csproj": {
+                "projectPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Core\\InvoiceManagementSystem.Core.csproj"
+              },
+              "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Entity\\InvoiceManagementSystem.Entity.csproj": {
+                "projectPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Entity\\InvoiceManagementSystem.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Entity\\InvoiceManagementSystem.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Entity\\InvoiceManagementSystem.Entity.csproj",
+        "projectName": "InvoiceManagementSystem.Entity",
+        "projectPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Entity\\InvoiceManagementSystem.Entity.csproj",
+        "packagesPath": "C:\\Users\\Burak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

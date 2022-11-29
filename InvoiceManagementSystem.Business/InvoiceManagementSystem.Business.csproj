@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InvoiceManagementSystem.DataAccess\InvoiceManagementSystem.DataAccess.csproj" />
+    <ProjectReference Include="..\InvoiceManagementSystem.Entity\InvoiceManagementSystem.Entity.csproj" />
+  </ItemGroup>
+
+</Project>
