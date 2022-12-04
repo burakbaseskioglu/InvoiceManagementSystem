@@ -25,15 +25,38 @@ namespace InvoiceManagementSystem.DataAccess.Concrete.EntityFramework
                     NumberOfSuite = x.NumberOfSuite,
                     Status = x.Status,
                     IsTenant = x.IsTenant,
-                    Firstname = x.User.Firstname,
-                    Lastname = x.User.Lastname,
+                    SuiteOwner = $"{x.User.Firstname} {x.User.Lastname}" ,
                     IdentityNumber = x.User.IdentityNumber,
                     Email = x.User.Email,
                     Phone = x.User.Phone,
-                    LicensePlate = x.User.LicensePlate,
+                    LicensePlate = x.User.LicensePlate
                 });
 
                 return suites.ToList();
+            }
+        }
+
+        public SuiteDto GetSuiteWithUser(int suiteId)
+        {
+            using (var context = new AppDbContext())
+            {
+                var suite = context.Suites.Include(x => x.User).Where(x=>x.Id == suiteId).Select(x => new SuiteDto
+                {
+                    SuiteId = x.Id,
+                    Block = x.Block,
+                    Floor = x.Floor,
+                    Type = x.Type,
+                    NumberOfSuite = x.NumberOfSuite,
+                    Status = x.Status,
+                    IsTenant = x.IsTenant,
+                    OwnerId = x.User.Id,
+                    SuiteOwner = $"{x.User.Firstname} {x.User.Lastname}",
+                    IdentityNumber = x.User.IdentityNumber,
+                    Email = x.User.Email,
+                    Phone = x.User.Phone,
+                    LicensePlate = x.User.LicensePlate
+                }).FirstOrDefault();
+                return suite;
             }
         }
     }

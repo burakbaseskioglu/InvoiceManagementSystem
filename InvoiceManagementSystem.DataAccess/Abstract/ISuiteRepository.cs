@@ -7,5 +7,6 @@ namespace InvoiceManagementSystem.DataAccess.Abstract
     public interface ISuiteRepository : IRepository<Suite>
     {
         List<SuiteDto> GetAllSuitesWithUsers();
+        SuiteDto GetSuiteWithUser(int suiteId);
     }
 }

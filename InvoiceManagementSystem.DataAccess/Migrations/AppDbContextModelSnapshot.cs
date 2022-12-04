@@ -116,9 +116,6 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("SuiteOwnerId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("text");

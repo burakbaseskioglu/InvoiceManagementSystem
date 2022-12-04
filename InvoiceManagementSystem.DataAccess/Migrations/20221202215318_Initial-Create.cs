@@ -21,7 +21,9 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                     NumberOfFloor = table.Column<int>(type: "integer", nullable: false),
                     NumberOfSuite = table.Column<int>(type: "integer", nullable: false),
                     ManagementId = table.Column<int>(type: "integer", nullable: false),
-                    MyProperty = table.Column<int>(type: "integer", nullable: false)
+                    BlockCode = table.Column<string>(type: "text", nullable: false),
+                    Address = table.Column<string>(type: "text", nullable: false),
+                    ApartmentNo = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -91,7 +93,6 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                     NumberOfSuite = table.Column<int>(type: "integer", nullable: false),
                     Status = table.Column<bool>(type: "boolean", nullable: false),
                     IsTenant = table.Column<bool>(type: "boolean", nullable: false),
-                    SuiteOwnerId = table.Column<int>(type: "integer", nullable: false),
                     UserId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

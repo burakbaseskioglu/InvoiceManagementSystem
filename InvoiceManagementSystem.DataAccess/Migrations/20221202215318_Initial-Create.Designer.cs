@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace InvoiceManagementSystem.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221126204453_ApartmentId")]
-    partial class ApartmentId
+    [Migration("20221202215318_Initial-Create")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,9 +118,6 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
 
                     b.Property<bool>("Status")
                         .HasColumnType("boolean");
-
-                    b.Property<int>("SuiteOwnerId")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Type")
                         .IsRequired()

@@ -13,6 +13,8 @@ namespace InvoiceManagementSystem.Business.Abstract
     {
         IResult Insert(Suite suite);
         IResult InsertRange(CreateSuiteDto suiteDto);
+        IResult Update(UpdateSuiteDto updateSuiteDto);
+        IResult Delete(int suiteId);
         IDataResult<List<SuiteDto>> GetAll();
     }
 }

@@ -49,7 +49,8 @@ namespace InvoiceManagementSystem.Core.DataAccess.EntityFramework
         {
             using (TContext context = new TContext())
             {
-                context.Entry(entity).State = EntityState.Modified;
+                var updatedEntity = context.Entry(entity);
+                updatedEntity.State = EntityState.Modified;
                 context.SaveChanges();
             }
         }

@@ -1,4 +1,5 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
+using InvoiceManagementSystem.Entity.Entities.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceManagementSystem.WebAPI.Controllers
@@ -24,6 +25,12 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         public IActionResult GetAll()
         {
             return Ok(_suiteBusiness.GetAll());
+        }
+
+        [HttpPut("UpdateSuite")]
+        public IActionResult Update(UpdateSuiteDto updateSuiteDto)
+        {
+            return Ok(_suiteBusiness.Update(updateSuiteDto));
         }
     }
 }

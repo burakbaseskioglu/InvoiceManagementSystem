@@ -19,6 +19,11 @@ namespace InvoiceManagementSystem.DataAccess
         {
             modelBuilder.Entity<Apartment>().HasKey(x => x.Id);
             modelBuilder.Entity<Apartment>().Property(x => x.Id).IsRequired(true);
+
+            modelBuilder.Entity<Suite>().HasKey(x => x.Id);
+            modelBuilder.Entity<Suite>().Property(x => x.Id).IsRequired(true);
+
+            //modelBuilder.Entity<Suite>().HasOne<User>().WithMany().HasForeignKey(x => x.UserId);
         }
 
         public DbSet<Apartment> Apartments { get; set; }

@@ -15,7 +15,7 @@ namespace InvoiceManagementSystem.Entity.Entities.Concrete
         public int NumberOfSuite { get; set; }
         public bool Status { get; set; }
         public bool IsTenant { get; set; }
-        public int SuiteOwnerId { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
     }
 }
