@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InvoiceManagementSystem.Entity.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,13 @@ namespace InvoiceManagementSystem.Entity.Entities.Dto
 {
     public class CreateSuiteDto
     {
-        public int NumberOfFloor { get; set; }
-        public int SuiteOfFloorCount { get; set; }
-        public string BlockCode { get; set; }
+        public string Block { get; set; }
+        public int Floor { get; set; }
+        public int DoorNumber { get; set; }
         public string Type { get; set; }
+        public bool Status { get; set; }
+        public bool IsTenant { get; set; }
+        public int ApartmentId { get; set; }
+        public int UserId { get; set; }
     }
 }

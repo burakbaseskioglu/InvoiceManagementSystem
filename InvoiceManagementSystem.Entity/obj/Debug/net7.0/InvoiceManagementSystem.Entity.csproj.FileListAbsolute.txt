@@ -10,3 +10,6 @@ C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Enti
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\obj\Debug\net7.0\refint\InvoiceManagementSystem.Entity.dll
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\obj\Debug\net7.0\InvoiceManagementSystem.Entity.pdb
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\obj\Debug\net7.0\ref\InvoiceManagementSystem.Entity.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\bin\Debug\net7.0\InvoiceManagementSystem.Core.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\bin\Debug\net7.0\InvoiceManagementSystem.Core.pdb
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\obj\Debug\net7.0\InvoiceManagementSystem.Entity.csproj.CopyComplete

@@ -12,6 +12,7 @@ namespace InvoiceManagementSystem.Core.DataAccess.EntityFramework
         void Insert(T entity);
         void Delete(T entiny);
         void Update(T entity);
+        void UpdateRange(List<T> entities);
         T Get(Expression<Func<T, bool>> predicate);
         List<T> GetAll(Expression<Func<T, bool>> predicate = null);
     }

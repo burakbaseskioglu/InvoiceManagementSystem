@@ -54,5 +54,13 @@ namespace InvoiceManagementSystem.Core.DataAccess.EntityFramework
                 context.SaveChanges();
             }
         }
+
+        public void UpdateRange(List<T> entities)
+        {
+            using (TContext context = new TContext()) 
+            {
+                context.Set<T>().UpdateRange(entities);
+            }
+        }
     }
 }

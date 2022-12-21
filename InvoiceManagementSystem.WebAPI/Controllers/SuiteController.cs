@@ -15,10 +15,10 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
             _suiteBusiness = suiteBusiness;
         }
 
-        [HttpPost("CreateMultipleSuite")]
-        public IActionResult CreateSuiteRange()
+        [HttpPost("InsertSuite")]
+        public IActionResult Insert(CreateSuiteDto createSuiteDto)
         {
-            return Ok();
+            return Ok(_suiteBusiness.Insert(createSuiteDto));
         }
 
         [HttpGet("GetAllSuitesWithUsers")]
@@ -31,6 +31,12 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         public IActionResult Update(UpdateSuiteDto updateSuiteDto)
         {
             return Ok(_suiteBusiness.Update(updateSuiteDto));
+        }
+
+        [HttpDelete("DeleteSuite")]
+        public IActionResult Delete(int suiteId) 
+        {
+            return Ok(_suiteBusiness.Delete(suiteId));
         }
     }
 }

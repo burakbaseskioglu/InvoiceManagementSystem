@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InvoiceManagementSystem.Core.Entity.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InvoiceManagementSystem.Entity.Entities.Concrete
 {
-    public class Apartment
+    public class Apartment : BaseEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -27,7 +27,9 @@ namespace InvoiceManagementSystem.Business.Concrete
             var suite = _suiteRepository.Get(x => x.Id == suiteId);
             if (suite != null)
             {
-                _suiteRepository.Delete(suite);
+                suite.IsActive = false;
+                suite.DeletedDate = DateTime.Now;
+                _suiteRepository.Update(suite);
                 return new SuccessResult();
             }
             return new ErrorResult("Daire bulunamadı.");
@@ -40,18 +42,43 @@ namespace InvoiceManagementSystem.Business.Concrete
             {
                 return new SuccessDataResult<List<SuiteDto>>(suites);
             }
-            return new ErrorDataResult<List<SuiteDto>>("Daire listesi bulunamadı");
+            return new ErrorDataResult<List<SuiteDto>>("Daire listesi bulunamadı.");
         }
 
-        public IResult Insert(Suite suite)
+        public IDataResult<SuiteDto> GetById(int suiteId)
         {
-            _suiteRepository.Insert(suite);
-            return new SuccessResult();
+            var suite = _suiteRepository.GetSuiteWithUser(suiteId);
+            if (suite != null)
+            {
+                return new SuccessDataResult<SuiteDto>(suite);
+            }
+            return new ErrorDataResult<SuiteDto>("Daire bulunamadı.");
         }
 
-        public IResult InsertRange(CreateSuiteDto suiteDto)
+        public IResult Insert(CreateSuiteDto createSuiteDto)
         {
-            //CreateSuites(suiteDto.NumberOfFloor, suiteDto.SuiteOfFloorCount, suiteDto.BlockCode, suiteDto.Type);
+            if (createSuiteDto != null)
+            {
+                _suiteRepository.Insert(new Suite
+                {
+                    IsActive = true,
+                    CreatedDate = DateTime.Now,
+                    Block = createSuiteDto.Block,
+                    Floor = createSuiteDto.Floor,
+                    Type = createSuiteDto.Type,
+                    NumberOfSuite = createSuiteDto.DoorNumber,
+                    Status = createSuiteDto.Status,
+                    IsTenant = createSuiteDto.IsTenant,
+                    ApartmentId = createSuiteDto.ApartmentId,
+                    UserId = createSuiteDto.UserId
+                });
+                return new SuccessResult();
+            }
+            return new ErrorResult();
+        }
+
+        public IResult InsertRange(InsertRangeSuiteDto suiteDto)
+        {
             int k = 1;
             for (int i = 1; i <= suiteDto.NumberOfFloor; i++)
             {
@@ -59,13 +86,16 @@ namespace InvoiceManagementSystem.Business.Concrete
                 {
                     var suite = new Suite
                     {
+                        IsActive = true,
+                        CreatedDate = DateTime.Now,
                         Block = suiteDto.BlockCode,
                         Floor = i,
                         Type = suiteDto.Type,
                         NumberOfSuite = k++,
                         Status = false,
                         IsTenant = false,
-                        UserId = _userBusiness.GetUser(4).Data.Id
+                        UserId = _userBusiness.GetUser(1).Data.Id,
+                        ApartmentId = suiteDto.ApartmentId
                     };
                     _suiteRepository.Insert(suite);
                 }
@@ -82,10 +112,12 @@ namespace InvoiceManagementSystem.Business.Concrete
                 var newSuite = new Suite
                 {
                     Id = updateSuiteDto.SuiteId,
+                    UpdatedDate=DateTime.Now,
                     Block = updateSuiteDto.Block == default ? suite.Block : updateSuiteDto.Block,
                     Floor = updateSuiteDto.Floor == default ? suite.Floor : updateSuiteDto.Floor,
                     Type = updateSuiteDto.Type == default ? suite.Type : updateSuiteDto.Type,
                     NumberOfSuite = updateSuiteDto.NumberOfSuite == default ? suite.NumberOfSuite : updateSuiteDto.NumberOfSuite,
+                    ApartmentId = updateSuiteDto.ApartmentId == default ? suite.ApartmentId : updateSuiteDto.ApartmentId,
                     Status = updateSuiteDto.Status == default ? suite.Status : updateSuiteDto.Status,
                     IsTenant = updateSuiteDto.IsTenant == default ? suite.IsTenant : updateSuiteDto.IsTenant,
                     UserId = updateSuiteDto.OwnerId == default ? suite.OwnerId : updateSuiteDto.OwnerId,
@@ -94,6 +126,11 @@ namespace InvoiceManagementSystem.Business.Concrete
                 return new SuccessResult();
             }
             return new ErrorResult("Daire bulunamadı.");
+        }
+
+        public IResult UpdateRange(List<UpdateSuiteDto> updateSuiteDto)
+        {
+            throw new NotImplementedException();
         }
 
         private void CreateSuites(int numberOfFloor, int suiteOfFloorCount, string blockCode, string type)

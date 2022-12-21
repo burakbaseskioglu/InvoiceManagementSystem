@@ -196,6 +196,9 @@
         }
       },
       "InvoiceManagementSystem.Entity/1.0.0": {
+        "dependencies": {
+          "InvoiceManagementSystem.Core": "1.0.0"
+        },
         "runtime": {
           "InvoiceManagementSystem.Entity.dll": {}
         }

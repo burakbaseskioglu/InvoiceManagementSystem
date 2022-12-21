@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InvoiceManagementSystem.Core.Entity.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InvoiceManagementSystem.Entity.Entities.Concrete
 {
-    public class Management
+    public class Management : BaseEntity
     {
         public int Id { get; set; }
         public int UserId { get; set; }

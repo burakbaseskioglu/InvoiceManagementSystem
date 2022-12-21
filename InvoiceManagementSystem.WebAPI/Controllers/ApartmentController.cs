@@ -27,6 +27,12 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
             return Ok(_apartmentBusiness.GetAll());
         }
 
+        [HttpGet("GetApartmentById")]
+        public IActionResult GetApartmentById(int apartmentId) 
+        {
+            return Ok(_apartmentBusiness.GetApartmentById(apartmentId));
+        }
+
         [HttpPost("AddApartment")]
         public IActionResult AddApartment(ApartmentDto apartment)
         {

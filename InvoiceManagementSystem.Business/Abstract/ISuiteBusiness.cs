@@ -11,10 +11,12 @@ namespace InvoiceManagementSystem.Business.Abstract
 {
     public interface ISuiteBusiness
     {
-        IResult Insert(Suite suite);
-        IResult InsertRange(CreateSuiteDto suiteDto);
+        IResult Insert(CreateSuiteDto createSuiteDto);
+        IResult InsertRange(InsertRangeSuiteDto suiteDto);
         IResult Update(UpdateSuiteDto updateSuiteDto);
         IResult Delete(int suiteId);
         IDataResult<List<SuiteDto>> GetAll();
+        IDataResult<SuiteDto> GetById(int suiteId);
+        IResult UpdateRange(List<UpdateSuiteDto> updateSuiteDto);
     }
 }

@@ -234,7 +234,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Core\\InvoiceManagementSystem.Core.csproj": {
+                "projectPath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Core\\InvoiceManagementSystem.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

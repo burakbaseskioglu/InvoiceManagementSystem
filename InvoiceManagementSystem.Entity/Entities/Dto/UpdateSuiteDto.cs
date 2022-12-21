@@ -13,6 +13,7 @@ namespace InvoiceManagementSystem.Entity.Entities.Dto
         public int Floor { get; set; }
         public string Type { get; set; }
         public int NumberOfSuite { get; set; }
+        public int ApartmentId { get; set; }
         public bool Status { get; set; }
         public bool IsTenant { get; set; }
         public int OwnerId { get; set; }

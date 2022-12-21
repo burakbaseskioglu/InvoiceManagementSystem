@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Dto;
 using InvoiceManagementSystem.Core.Utilities.Result;
+using System.Transactions;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
@@ -29,7 +30,9 @@ namespace InvoiceManagementSystem.Business.Concrete
             var apartment = _apartmentRepository.Get(x => x.Id == apartmentId);
             if (apartment != null)
             {
-                _apartmentRepository.Delete(apartment);
+                apartment.IsActive = false;
+                apartment.DeletedDate = DateTime.Now;
+                _apartmentRepository.Update(apartment);
                 return new SuccessResult();
             }
             return new ErrorResult();
@@ -37,7 +40,7 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<ApartmentDto> GetApartmentByName(string apartmentName)
         {
-            var apartment = _apartmentRepository.Get(x => x.Name.ToLower() == apartmentName.ToLower());
+            var apartment = _apartmentRepository.Get(x => x.Name.ToLower() == apartmentName.ToLower() && x.IsActive == true);
             if (apartment != null)
             {
                 return new SuccessDataResult<ApartmentDto>(
@@ -57,7 +60,7 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<List<ApartmentDto>> GetAll()
         {
-            var getAllApartment = _apartmentRepository.GetAll().ToList();
+            var getAllApartment = _apartmentRepository.GetAll(x => x.IsActive == true).ToList();
             if (getAllApartment != null)
             {
                 var apartmentList = new List<ApartmentDto>();
@@ -80,45 +83,79 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IResult Insert(ApartmentDto apartmentDto)
         {
-            var getApartment = _apartmentRepository.Get(x => x.ApartmentNo == apartmentDto.ApartmentNo);
-            if (getApartment == null)
+            using (TransactionScope scope = new TransactionScope())
             {
-                var apartment = new Apartment
+                try
                 {
-                    Name = apartmentDto.Name,
-                    NumberOfFloor = apartmentDto.NumberOfFloor,
-                    NumberOfSuite = apartmentDto.NumberOfSuite,
-                    ManagementId = apartmentDto.ManagementId,
-                    BlockCode = apartmentDto.BlockCode,
-                    ApartmentNo = apartmentDto.ApartmentNo,
-                    Address = apartmentDto.Address,
-                };
-                _apartmentRepository.Insert(apartment);
-                _suiteBusiness.InsertRange(new CreateSuiteDto
+                    var getApartment = _apartmentRepository.Get(x => x.ApartmentNo == apartmentDto.ApartmentNo);
+                    if (getApartment == null)
+                    {
+                        var apartment = new Apartment
+                        {
+                            IsActive = true,
+                            CreatedDate = DateTime.Now,
+                            Name = apartmentDto.Name,
+                            NumberOfFloor = apartmentDto.NumberOfFloor,
+                            NumberOfSuite = apartmentDto.NumberOfSuite,
+                            ManagementId = apartmentDto.ManagementId,
+                            BlockCode = apartmentDto.BlockCode,
+                            ApartmentNo = apartmentDto.ApartmentNo,
+                            Address = apartmentDto.Address,
+                        };
+                        _apartmentRepository.Insert(apartment);
+                        _suiteBusiness.InsertRange(new InsertRangeSuiteDto
+                        {
+                            BlockCode = apartmentDto.BlockCode,
+                            NumberOfFloor = apartmentDto.NumberOfFloor,
+                            SuiteOfFloorCount = apartmentDto.SuiteOfFloorCount,
+                            Type = apartmentDto.SuiteType,
+                            ApartmentId = apartment.Id
+                        });
+                        scope.Complete();
+                        return new SuccessResult("Apartman ve daireler oluşturuldu.");
+                    }
+                    return new ErrorResult("Eklemeye çalıştığınız apartman zaten mevcut");
+                }
+                catch (Exception ex)
                 {
-                    BlockCode = apartmentDto.BlockCode,
-                    NumberOfFloor = apartmentDto.NumberOfFloor,
-                    SuiteOfFloorCount = apartmentDto.SuiteOfFloorCount,
-                    Type = apartmentDto.SuiteType
-                });
-                return new SuccessResult("Apartman ve daireler oluşturuldu.");
+                    scope.Dispose();
+                    return new ErrorResult($"Bir hata oluştu: {ex.Message}");
+                }
             }
-            return new ErrorResult("Eklemeye çalıştığınız apartman zaten mevcut");
         }
 
         public IResult Update(ApartmentDto apartmentDto)
         {
-            var apartment = _apartmentRepository.Get(x => x.Name == apartmentDto.Name);
+            var apartment = _apartmentRepository.Get(x => x.Name == apartmentDto.Name && x.IsActive == true);
             if (apartment != null)
             {
+                apartment.UpdatedDate = DateTime.Now;
                 apartment.Name = apartmentDto.Name;
                 apartment.ManagementId = apartmentDto.ManagementId;
                 apartment.NumberOfSuite = apartmentDto.NumberOfSuite;
                 apartment.NumberOfFloor = apartmentDto.NumberOfFloor;
+                apartment.Address = apartmentDto.Address;
                 _apartmentRepository.Update(apartment);
                 return new SuccessResult();
             }
             return new ErrorResult("Bir hata oluştu.");
+        }
+
+        public IDataResult<ApartmentDto> GetApartmentById(int apartmentId)
+        {
+            var apartment = _apartmentRepository.Get(x => x.Id == apartmentId && x.IsActive == true);
+            if (apartment != null)
+            {
+                return new SuccessDataResult<ApartmentDto>(new ApartmentDto
+                {
+                    Name = apartment.Name,
+                    ApartmentNo = apartment.ApartmentNo,
+                    BlockCode = apartment.BlockCode,
+                    Address = apartment.Address,
+                    NumberOfFloor = apartment.NumberOfFloor,
+                });
+            }
+            return new ErrorDataResult<ApartmentDto>("Apartman bulunamadı.");
         }
     }
 }
