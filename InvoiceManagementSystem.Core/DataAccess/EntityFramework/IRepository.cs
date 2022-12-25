@@ -10,6 +10,7 @@ namespace InvoiceManagementSystem.Core.DataAccess.EntityFramework
     public interface IRepository<T> where T : class
     {
         void Insert(T entity);
+        void InsertRange(List<T> entity);
         void Delete(T entiny);
         void Update(T entity);
         void UpdateRange(List<T> entities);

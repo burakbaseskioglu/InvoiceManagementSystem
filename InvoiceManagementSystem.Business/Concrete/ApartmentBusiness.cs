@@ -136,6 +136,9 @@ namespace InvoiceManagementSystem.Business.Concrete
                 apartment.NumberOfFloor = apartmentDto.NumberOfFloor;
                 apartment.Address = apartmentDto.Address;
                 _apartmentRepository.Update(apartment);
+
+                _suiteBusiness.UpdateRange(apartmentDto.SuiteType, apartment.Id);
+
                 return new SuccessResult();
             }
             return new ErrorResult("Bir hata oluştu.");

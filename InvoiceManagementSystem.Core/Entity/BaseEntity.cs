@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InvoiceManagementSystem.Core.Entity.Abstract
+namespace InvoiceManagementSystem.Core.Entity
 {
     public class BaseEntity
     {

@@ -45,6 +45,15 @@ namespace InvoiceManagementSystem.Core.DataAccess.EntityFramework
             }
         }
 
+        public void InsertRange(List<T> entity)
+        {
+            using (TContext context = new TContext()) 
+            {
+                context.Set<T>().AddRange(entity);
+                context.SaveChanges();
+            }
+        }
+
         public void Update(T entity)
         {
             using (TContext context = new TContext())
@@ -60,6 +69,7 @@ namespace InvoiceManagementSystem.Core.DataAccess.EntityFramework
             using (TContext context = new TContext()) 
             {
                 context.Set<T>().UpdateRange(entities);
+                context.SaveChanges();
             }
         }
     }

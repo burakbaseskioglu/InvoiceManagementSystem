@@ -1,4 +1,4 @@
-﻿using InvoiceManagementSystem.Core.Entity.Abstract;
+﻿using InvoiceManagementSystem.Core.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

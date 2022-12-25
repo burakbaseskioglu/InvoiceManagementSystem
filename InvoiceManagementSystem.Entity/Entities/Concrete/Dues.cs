@@ -1,4 +1,5 @@
-﻿using InvoiceManagementSystem.Core.Entity.Abstract;
+﻿using InvoiceManagementSystem.Core.Entity;
+using InvoiceManagementSystem.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,10 @@ namespace InvoiceManagementSystem.Entity.Entities.Concrete
     public class Dues : BaseEntity
     {
         public int Id { get; set; }
+        public int Type { get; set; }
+        public string BillingPeriod { get; set; }
         public decimal Amount { get; set; }
-
+        public int SuiteId { get; set; }
+        public Suite Suite { get; set; }
     }
 }

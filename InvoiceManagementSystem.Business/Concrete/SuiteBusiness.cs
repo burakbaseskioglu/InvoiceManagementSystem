@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Drawing;
 using System.Numerics;
+using InvoiceManagementSystem.Core.Enums;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
@@ -94,7 +95,7 @@ namespace InvoiceManagementSystem.Business.Concrete
                         NumberOfSuite = k++,
                         Status = false,
                         IsTenant = false,
-                        UserId = _userBusiness.GetUser(1).Data.Id,
+                        UserId = _userBusiness.GetUser((int)StandardUser.StandardUser).Data.Id,
                         ApartmentId = suiteDto.ApartmentId
                     };
                     _suiteRepository.Insert(suite);
@@ -128,31 +129,41 @@ namespace InvoiceManagementSystem.Business.Concrete
             return new ErrorResult("Daire bulunamadı.");
         }
 
-        public IResult UpdateRange(List<UpdateSuiteDto> updateSuiteDto)
+        public IResult UpdateRange(string type, int apartmentId)
         {
-            throw new NotImplementedException();
+            var suites = _suiteRepository.GetAll(x => x.ApartmentId == apartmentId);
+            var newlist = new List<Suite>();
+            foreach(var item in suites) 
+            {
+                item.Type = type;
+                newlist.Add(item);
+            }
+
+            _suiteRepository.UpdateRange(newlist);
+
+            return new SuccessResult();
         }
 
-        private void CreateSuites(int numberOfFloor, int suiteOfFloorCount, string blockCode, string type)
-        {
-            int k = 1;
-            for (int i = 1; i <= numberOfFloor; i++)
-            {
-                for (int j = 1; j <= suiteOfFloorCount; j++)
-                {
-                    var suite = new Suite
-                    {
-                        Block = blockCode,
-                        Floor = i,
-                        Type = type,
-                        NumberOfSuite = k++,
-                        Status = false,
-                        IsTenant = false,
-                        UserId = _userBusiness.GetUser(4).Data.Id
-                    };
-                    _suiteRepository.Insert(suite);
-                }
-            }
-        }
+        //private void CreateSuites(int numberOfFloor, int suiteOfFloorCount, string blockCode, string type)
+        //{
+        //    int k = 1;
+        //    for (int i = 1; i <= numberOfFloor; i++)
+        //    {
+        //        for (int j = 1; j <= suiteOfFloorCount; j++)
+        //        {
+        //            var suite = new Suite
+        //            {
+        //                Block = blockCode,
+        //                Floor = i,
+        //                Type = type,
+        //                NumberOfSuite = k++,
+        //                Status = false,
+        //                IsTenant = false,
+        //                UserId = _userBusiness.GetUser(4).Data.Id
+        //            };
+        //            _suiteRepository.Insert(suite);
+        //        }
+        //    }
+        //}
     }
 }

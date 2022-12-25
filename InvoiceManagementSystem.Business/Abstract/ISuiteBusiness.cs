@@ -17,6 +17,6 @@ namespace InvoiceManagementSystem.Business.Abstract
         IResult Delete(int suiteId);
         IDataResult<List<SuiteDto>> GetAll();
         IDataResult<SuiteDto> GetById(int suiteId);
-        IResult UpdateRange(List<UpdateSuiteDto> updateSuiteDto);
+        IResult UpdateRange(string type, int apartmentId);
     }
 }

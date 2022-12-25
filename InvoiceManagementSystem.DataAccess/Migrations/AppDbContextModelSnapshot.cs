@@ -41,10 +41,10 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsActive")
@@ -63,7 +63,7 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                     b.Property<int>("NumberOfSuite")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
@@ -82,19 +82,31 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<string>("BillingPeriod")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<int>("SuiteId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SuiteId");
 
                     b.ToTable("Dues");
                 });
@@ -107,16 +119,16 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("UserId")
@@ -144,10 +156,10 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("Floor")
@@ -169,7 +181,7 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("UserId")
@@ -192,10 +204,10 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
@@ -227,12 +239,23 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("InvoiceManagementSystem.Entity.Entities.Concrete.Dues", b =>
+                {
+                    b.HasOne("InvoiceManagementSystem.Entity.Entities.Concrete.Suite", "Suite")
+                        .WithMany()
+                        .HasForeignKey("SuiteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Suite");
                 });
 
             modelBuilder.Entity("InvoiceManagementSystem.Entity.Entities.Concrete.Management", b =>
