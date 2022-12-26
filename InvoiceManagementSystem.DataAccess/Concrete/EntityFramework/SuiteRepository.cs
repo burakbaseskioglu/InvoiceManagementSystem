@@ -19,6 +19,7 @@ namespace InvoiceManagementSystem.DataAccess.Concrete.EntityFramework
             {
                 var suites = context.Suites.Include(x => x.User).Where(x => x.IsActive == true).Select(x => new SuiteDto
                 {
+                    SuiteId = x.Id,
                     Block = x.Block,
                     Floor = x.Floor,
                     Type = x.Type,
@@ -30,7 +31,8 @@ namespace InvoiceManagementSystem.DataAccess.Concrete.EntityFramework
                     IdentityNumber = x.User.IdentityNumber,
                     Email = x.User.Email,
                     Phone = x.User.Phone,
-                    LicensePlate = x.User.LicensePlate
+                    LicensePlate = x.User.LicensePlate,
+                    ApartmentId = x.ApartmentId
                 });
 
                 return suites.ToList();

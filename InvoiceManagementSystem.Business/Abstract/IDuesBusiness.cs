@@ -12,6 +12,6 @@ namespace InvoiceManagementSystem.Business.Abstract
     public interface IDuesBusiness
     {
         IResult Insert(InsertDuesDto insertDuesDto);
-        IResult InsertRange(InsertDuesDto insertDuesDto);
+        IResult InsertRange(InsertRangeDuesDto insertRangeDuesDto);
     }
 }

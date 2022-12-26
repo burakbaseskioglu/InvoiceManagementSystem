@@ -8,16 +8,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
     public class DuesBusiness : IDuesBusiness
     {
         private readonly IDuesRepository _duesRepository;
+        private readonly IApartmentBusiness _apartmentBusiness;
+        private readonly ISuiteBusiness _suiteBusiness;
 
-        public DuesBusiness(IDuesRepository duesRepository)
+        public DuesBusiness(IDuesRepository duesRepository, IApartmentBusiness apartmentBusiness, ISuiteBusiness suiteBusiness)
         {
             _duesRepository = duesRepository;
+            _apartmentBusiness = apartmentBusiness;
+            _suiteBusiness = suiteBusiness;
         }
 
         public IResult Insert(InsertDuesDto insertDuesDto)
@@ -42,9 +47,27 @@ namespace InvoiceManagementSystem.Business.Concrete
             return new ErrorResult("Bu fatura daha önceden eklenmiş.");
         }
 
-        public IResult InsertRange(InsertDuesDto insertDuesDto)
+        public IResult InsertRange(InsertRangeDuesDto insertRangeDuesDto)
         {
-            return new SuccessResult();
+            var apartment = _apartmentBusiness.GetApartmentById(insertRangeDuesDto.ApartmentId);
+            var suites = _suiteBusiness.GetAll().Data.Where(x => x.ApartmentId == insertRangeDuesDto.ApartmentId).ToList();
+            if (suites != null)
+            {
+                foreach (var suite in suites)
+                {
+                    _duesRepository.Insert(new Dues
+                    {
+                        IsActive = true,
+                        CreatedDate = DateTime.Now,
+                        Type = insertRangeDuesDto.Type,
+                        Amount = insertRangeDuesDto.Amount,
+                        BillingPeriod = insertRangeDuesDto.BillingPeriod,
+                        SuiteId = suite.SuiteId
+                    });
+                }
+                return new SuccessResult("Otomatik fatura atamaları tamamlandı.");
+            }
+            return new ErrorResult();
         }
     }
 }
