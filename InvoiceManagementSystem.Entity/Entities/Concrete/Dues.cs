@@ -11,7 +11,9 @@ namespace InvoiceManagementSystem.Entity.Entities.Concrete
     public class Dues : BaseEntity
     {
         public int Id { get; set; }
-        public int Type { get; set; }
+        public bool IsPaid { get; set; }
+        public int BillTypeId { get; set; }
+        public BillType BillType { get; set; }
         public string BillingPeriod { get; set; }
         public decimal Amount { get; set; }
         public int SuiteId { get; set; }

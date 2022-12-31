@@ -1,0 +1,16 @@
+﻿C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Abstract\IApartmentRepository.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Abstract\IDuesRepository.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Abstract\ISuiteRepository.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Abstract\IUserRepository.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\AppDbContext.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Concrete\EntityFramework\ApartmentRepository.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Concrete\EntityFramework\DuesRepository.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Concrete\EntityFramework\SuiteRepository.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Concrete\EntityFramework\UserRepository.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Migrations\20221220203551_InitialCreate.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Migrations\20221220203551_InitialCreate.Designer.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Migrations\20221225180816_DuesType.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Migrations\20221225180816_DuesType.Designer.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Migrations\20221225182005_DuesTypeSuite.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Migrations\20221225182005_DuesTypeSuite.Designer.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.DataAccess\Migrations\AppDbContextModelSnapshot.cs

@@ -1,0 +1,22 @@
+z
+qC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\Apartment.csutf-8u
+lC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\Dues.csutf-8{
+rC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\Management.csutf-8v
+mC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\Suite.csutf-8u
+lC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\User.csutf-8z
+qC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\UserSuite.csutf-8x
+oC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\ApartmentDto.csutf-8z
+qC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\CreateSuiteDto.csutf-8y
+pC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\InsertDuesDto.csutf-8~
+uC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\InsertRangeDuesDto.csutf-8
+vC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\InsertRangeSuiteDto.csutf-8t
+kC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\SuiteDto.csutf-8z
+qC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\UpdateSuiteDto.csutf-8s
+jC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\UserDto.csutf-8y
+pC:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\UserInsertDto.csutf-8 
+”C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\obj\Debug\net7.0\InvoiceManagementSystem.Entity.GlobalUsings.g.csutf-8ž
+’C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8ž
+’C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\obj\Debug\net7.0\InvoiceManagementSystem.Entity.AssemblyInfo.csutf-8w
+lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSExportGenerator\JSExports.g.csutf-8w
+lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSImportGenerator\JSImports.g.csutf-8p
+eMicrosoft.Interop.LibraryImportGenerator\Microsoft.Interop.LibraryImportGenerator\LibraryImports.g.csutf-8

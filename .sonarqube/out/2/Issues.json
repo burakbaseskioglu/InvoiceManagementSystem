@@ -1,0 +1,387 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Derleyicisi",
+        "version": "4.4.0.0",
+        "fileVersion": "4.4.0-4.22520.11 (9e075f03)",
+        "semanticVersion": "4.4.0",
+        "language": "tr-TR"
+      },
+      "results": [
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Apartments', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 33,
+                  "endLine": 33,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 33,
+                  "endLine": 33,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Suites', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 29,
+                  "endLine": 34,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 29,
+                  "endLine": 34,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Users', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 28,
+                  "endLine": 35,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 28,
+                  "endLine": 35,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Managements', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 34,
+                  "endLine": 36,
+                  "endColumn": 45
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 34,
+                  "endLine": 36,
+                  "endColumn": 45
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Dues', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 28,
+                  "endLine": 37,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 28,
+                  "endLine": 37,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Olası null başvuru dönüşü.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/Concrete/EntityFramework/SuiteRepository.cs",
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 24,
+                  "endLine": 63,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 13,
+                  "endLine": 29,
+                  "endColumn": 99
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/Concrete/EntityFramework/SuiteRepository.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 88,
+                  "endLine": 20,
+                  "endColumn": 95
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/Concrete/EntityFramework/SuiteRepository.cs",
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 106,
+                  "endLine": 46,
+                  "endColumn": 113
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.DataAccess/AppDbContext.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 38,
+                  "endLine": 15,
+                  "endColumn": 129
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CS8603": {
+          "id": "CS8603",
+          "shortDescription": "Olası null başvuru dönüşü.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8603)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS8618": {
+          "id": "CS8618",
+          "shortDescription": "Null atanamaz alan, oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. Alanı null atanabilir olarak bildirmeyi düşünün.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8618)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "S1125": {
+          "id": "S1125",
+          "shortDescription": "Boolean literals should not be redundant",
+          "fullDescription": "Redundant Boolean literals should be removed from expressions to improve readability.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1125",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S125": {
+          "id": "S125",
+          "shortDescription": "Sections of code should not be commented out",
+          "fullDescription": "Programmers should not comment out code as it bloats programs and reduces readability.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-125",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2068": {
+          "id": "S2068",
+          "shortDescription": "Hard-coded credentials are security-sensitive",
+          "fullDescription": "Because it is easy to extract strings from an application source code or binary, credentials should not be hard-coded. This is particularly true for applications that are distributed or that are open-source.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2068",
+          "properties": {
+            "category": "Blocker Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

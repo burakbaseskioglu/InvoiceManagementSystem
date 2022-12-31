@@ -1,0 +1,15 @@
+﻿C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\Apartment.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\Dues.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\Management.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\Suite.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\User.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Concrete\UserSuite.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\ApartmentDto.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\CreateSuiteDto.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\InsertDuesDto.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\InsertRangeDuesDto.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\InsertRangeSuiteDto.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\SuiteDto.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\UpdateSuiteDto.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\UserDto.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Entity\Entities\Dto\UserInsertDto.cs

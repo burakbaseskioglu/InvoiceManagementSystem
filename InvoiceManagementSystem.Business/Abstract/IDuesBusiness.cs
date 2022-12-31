@@ -13,5 +13,10 @@ namespace InvoiceManagementSystem.Business.Abstract
     {
         IResult Insert(InsertDuesDto insertDuesDto);
         IResult InsertRange(InsertRangeDuesDto insertRangeDuesDto);
+        IDataResult<List<DuesDto>> PaidDebtList();
+        IDataResult<List<DuesDto>> UnpaidDebtList();
+        IResult Update(InsertDuesDto insertDuesDto);
+        IResult Delete(int duesId);
+        IDataResult<List<DuesDto>> GetAll();
     }
 }

@@ -71,6 +71,35 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                     b.ToTable("Apartments");
                 });
 
+            modelBuilder.Entity("InvoiceManagementSystem.Entity.Entities.Concrete.BillType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BillTypes");
+                });
+
             modelBuilder.Entity("InvoiceManagementSystem.Entity.Entities.Concrete.Dues", b =>
                 {
                     b.Property<int>("Id")
@@ -81,6 +110,9 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
+
+                    b.Property<int>("BillTypeId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("BillingPeriod")
                         .IsRequired()
@@ -95,16 +127,18 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("SuiteId")
-                        .HasColumnType("integer");
+                    b.Property<bool>("IsPaid")
+                        .HasColumnType("boolean");
 
-                    b.Property<int>("Type")
+                    b.Property<int>("SuiteId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BillTypeId");
 
                     b.HasIndex("SuiteId");
 
@@ -249,11 +283,19 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
 
             modelBuilder.Entity("InvoiceManagementSystem.Entity.Entities.Concrete.Dues", b =>
                 {
+                    b.HasOne("InvoiceManagementSystem.Entity.Entities.Concrete.BillType", "BillType")
+                        .WithMany()
+                        .HasForeignKey("BillTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("InvoiceManagementSystem.Entity.Entities.Concrete.Suite", "Suite")
                         .WithMany()
                         .HasForeignKey("SuiteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BillType");
 
                     b.Navigation("Suite");
                 });

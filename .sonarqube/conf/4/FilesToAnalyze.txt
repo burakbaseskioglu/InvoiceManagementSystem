@@ -1,0 +1,12 @@
+﻿C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\Controllers\ApartmentController.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\Controllers\DuesController.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\Controllers\SuiteController.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\Controllers\UserController.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\Program.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.GlobalUsings.g.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.AssemblyInfo.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\appsettings.Development.json
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\appsettings.json
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\Properties\launchSettings.json

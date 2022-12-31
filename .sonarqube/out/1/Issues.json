@@ -1,0 +1,1529 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Derleyicisi",
+        "version": "4.4.0.0",
+        "fileVersion": "4.4.0-4.22520.11 (9e075f03)",
+        "semanticVersion": "4.4.0",
+        "language": "tr-TR"
+      },
+      "results": [
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Firstname', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserInsertDto.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 23,
+                  "endLine": 11,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserInsertDto.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 23,
+                  "endLine": 11,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Lastname', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserInsertDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserInsertDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Email', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserInsertDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserInsertDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Phone', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserInsertDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserInsertDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'LicensePlate', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserInsertDto.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserInsertDto.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Firstname', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/User.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/User.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Lastname', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/User.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/User.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Email', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/User.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/User.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Phone', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/User.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 23,
+                  "endLine": 17,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/User.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 23,
+                  "endLine": 17,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'LicensePlate', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/User.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/User.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'CreatedDate', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Firstname', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Lastname', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Email', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Phone', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 23,
+                  "endLine": 17,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 23,
+                  "endLine": 17,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'LicensePlate', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UserDto.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Block', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Suite.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Suite.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Type', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Suite.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Suite.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Apartment', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Suite.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 26,
+                  "endLine": 20,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Suite.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 26,
+                  "endLine": 20,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'User', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Suite.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 21,
+                  "endLine": 22,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Suite.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 21,
+                  "endLine": 22,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'User', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Management.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 21,
+                  "endLine": 14,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Management.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 21,
+                  "endLine": 14,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Block', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UpdateSuiteDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UpdateSuiteDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Type', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UpdateSuiteDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/UpdateSuiteDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'BillingPeriod', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Dues.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Dues.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Suite', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Dues.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Dues.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Name', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/ApartmentDto.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 23,
+                  "endLine": 11,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/ApartmentDto.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 23,
+                  "endLine": 11,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'BlockCode', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/ApartmentDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/ApartmentDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Address', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/ApartmentDto.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/ApartmentDto.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'SuiteType', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/ApartmentDto.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 23,
+                  "endLine": 19,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/ApartmentDto.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 23,
+                  "endLine": 19,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Block', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Type', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'SuiteOwner', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 23,
+                  "endLine": 21,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 23,
+                  "endLine": 21,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Email', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 23,
+                  "endLine": 23,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 23,
+                  "endLine": 23,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Phone', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 23,
+                  "endLine": 24,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 23,
+                  "endLine": 24,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'LicensePlate', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 23,
+                  "endLine": 25,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/SuiteDto.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 23,
+                  "endLine": 25,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'BlockCode', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/InsertRangeSuiteDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/InsertRangeSuiteDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Type', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/InsertRangeSuiteDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/InsertRangeSuiteDto.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Block', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/CreateSuiteDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/CreateSuiteDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Type', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/CreateSuiteDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/CreateSuiteDto.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'BillingPeriod', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/InsertRangeDuesDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/InsertRangeDuesDto.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'BillingPeriod', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/InsertDuesDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Dto/InsertDuesDto.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 23,
+                  "endLine": 13,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Name', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Apartment.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Apartment.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'BlockCode', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Apartment.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Apartment.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Null atanamaz özellik 'Address', oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. özellik alanını null atanabilir olarak bildirmeyi düşünün.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Apartment.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 23,
+                  "endLine": 19,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Burak/source/repos/InvoiceManagementSystem/InvoiceManagementSystem.Entity/Entities/Concrete/Apartment.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 23,
+                  "endLine": 19,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CS8618": {
+          "id": "CS8618",
+          "shortDescription": "Null atanamaz alan, oluşturucudan çıkış yaparken null olmayan bir değer içermelidir. Alanı null atanabilir olarak bildirmeyi düşünün.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8618)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

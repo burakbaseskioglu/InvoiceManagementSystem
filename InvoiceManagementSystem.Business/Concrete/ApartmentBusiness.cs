@@ -16,13 +16,11 @@ namespace InvoiceManagementSystem.Business.Concrete
     {
         private readonly IApartmentRepository _apartmentRepository;
         private readonly ISuiteBusiness _suiteBusiness;
-        private readonly IUserBusiness _userBusiness;
 
-        public ApartmentBusiness(IApartmentRepository apartmentRepository, ISuiteBusiness suiteBusiness, IUserBusiness userBusiness)
+        public ApartmentBusiness(IApartmentRepository apartmentRepository, ISuiteBusiness suiteBusiness)
         {
             _apartmentRepository = apartmentRepository;
             _suiteBusiness = suiteBusiness;
-            _userBusiness = userBusiness;
         }
 
         public IResult Delete(int apartmentId)
@@ -40,7 +38,7 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<ApartmentDto> GetApartmentByName(string apartmentName)
         {
-            var apartment = _apartmentRepository.Get(x => x.Name.ToLower() == apartmentName.ToLower() && x.IsActive == true);
+            var apartment = _apartmentRepository.Get(x => x.Name.ToLower() == apartmentName.ToLower() && x.IsActive);
             if (apartment != null)
             {
                 return new SuccessDataResult<ApartmentDto>(
@@ -60,7 +58,7 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<List<ApartmentDto>> GetAll()
         {
-            var getAllApartment = _apartmentRepository.GetAll(x => x.IsActive == true).ToList();
+            var getAllApartment = _apartmentRepository.GetAll(x => x.IsActive).ToList();
             if (getAllApartment != null)
             {
                 var apartmentList = new List<ApartmentDto>();
@@ -126,7 +124,7 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IResult Update(ApartmentDto apartmentDto)
         {
-            var apartment = _apartmentRepository.Get(x => x.Name == apartmentDto.Name && x.IsActive == true);
+            var apartment = _apartmentRepository.Get(x => x.Name == apartmentDto.Name && x.IsActive);
             if (apartment != null)
             {
                 apartment.UpdatedDate = DateTime.Now;
@@ -146,7 +144,7 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<ApartmentDto> GetApartmentById(int apartmentId)
         {
-            var apartment = _apartmentRepository.Get(x => x.Id == apartmentId && x.IsActive == true);
+            var apartment = _apartmentRepository.Get(x => x.Id == apartmentId && x.IsActive);
             if (apartment != null)
             {
                 return new SuccessDataResult<ApartmentDto>(new ApartmentDto

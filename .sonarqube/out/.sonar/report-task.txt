@@ -1,0 +1,6 @@
+projectKey=InvoiceManagement
+serverUrl=http://localhost:9000
+serverVersion=9.8.0.63668
+dashboardUrl=http://localhost:9000/dashboard?id=InvoiceManagement
+ceTaskId=AYVlFaOw-jqjPlFR3k8P
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYVlFaOw-jqjPlFR3k8P

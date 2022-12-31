@@ -1,0 +1,8 @@
+﻿C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Business\Abstract\IApartmentBusiness.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Business\Abstract\IDuesBusiness.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Business\Abstract\ISuiteBusiness.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Business\Abstract\IUserBusiness.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Business\Concrete\ApartmentBusiness.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Business\Concrete\DuesBusiness.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Business\Concrete\SuiteBusiness.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.Business\Concrete\UserBusiness.cs
