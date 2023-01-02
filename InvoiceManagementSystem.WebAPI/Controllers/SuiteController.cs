@@ -15,6 +15,12 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
             _suiteBusiness = suiteBusiness;
         }
 
+        [HttpPost("AssignUser")]
+        public IActionResult AssignUser(int userId, int suiteId) 
+        {
+            return Ok(_suiteBusiness.AssignUser(userId, suiteId));
+        }
+
         [HttpPost("InsertSuite")]
         public IActionResult Insert(CreateSuiteDto createSuiteDto)
         {

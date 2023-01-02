@@ -36,5 +36,6 @@ namespace InvoiceManagementSystem.DataAccess
         public DbSet<Management> Managements { get; set; }
         public DbSet<Dues> Dues { get; set; }
         public DbSet<BillType> BillTypes { get; set; }
+        public DbSet<UserAssign> UserAssign { get; set; }
     }
 }

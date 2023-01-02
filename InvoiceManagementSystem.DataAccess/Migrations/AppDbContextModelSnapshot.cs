@@ -281,6 +281,40 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("InvoiceManagementSystem.Entity.Entities.Concrete.UserAssign", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsManagementApprove")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("SuiteId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserAssign");
+                });
+
             modelBuilder.Entity("InvoiceManagementSystem.Entity.Entities.Concrete.Dues", b =>
                 {
                     b.HasOne("InvoiceManagementSystem.Entity.Entities.Concrete.BillType", "BillType")

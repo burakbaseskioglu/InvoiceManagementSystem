@@ -18,5 +18,6 @@ namespace InvoiceManagementSystem.Business.Abstract
         IDataResult<List<SuiteDto>> GetAll();
         IDataResult<SuiteDto> GetById(int suiteId);
         IResult UpdateRange(string type, int apartmentId);
+        IResult AssignUser(int userId, int suiteId);
     }
 }

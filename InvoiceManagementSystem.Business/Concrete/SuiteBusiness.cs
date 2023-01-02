@@ -23,6 +23,21 @@ namespace InvoiceManagementSystem.Business.Concrete
             _userBusiness = userBusiness;
         }
 
+        public IResult AssignUser(int userId, int suiteId)
+        {
+            var user = _userBusiness.GetById(userId);
+            if (user != null)
+            {
+                var suite = _suiteRepository.Get(x => x.Id == suiteId);
+                suite.UserId = userId;
+                suite.Status = true;
+                _suiteRepository.Update(suite);
+                return new SuccessResult($"{user.Data.Firstname} {user.Data.Lastname} adlı kullanıcı {suite.Id} numaralı daireye atandı.");
+            }
+
+            return new ErrorResult();
+        }
+
         public IResult Delete(int suiteId)
         {
             var suite = _suiteRepository.Get(x => x.Id == suiteId);
@@ -113,7 +128,7 @@ namespace InvoiceManagementSystem.Business.Concrete
                 var newSuite = new Suite
                 {
                     Id = updateSuiteDto.SuiteId,
-                    UpdatedDate=DateTime.Now,
+                    UpdatedDate = DateTime.Now,
                     Block = updateSuiteDto.Block == default ? suite.Block : updateSuiteDto.Block,
                     Floor = updateSuiteDto.Floor == default ? suite.Floor : updateSuiteDto.Floor,
                     Type = updateSuiteDto.Type == default ? suite.Type : updateSuiteDto.Type,
@@ -133,7 +148,7 @@ namespace InvoiceManagementSystem.Business.Concrete
         {
             var suites = _suiteRepository.GetAll(x => x.ApartmentId == apartmentId);
             var newlist = new List<Suite>();
-            foreach(var item in suites) 
+            foreach (var item in suites)
             {
                 item.Type = type;
                 newlist.Add(item);
