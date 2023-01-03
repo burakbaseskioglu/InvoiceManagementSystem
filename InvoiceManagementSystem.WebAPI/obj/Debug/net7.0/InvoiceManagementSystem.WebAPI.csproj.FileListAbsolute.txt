@@ -1,3 +1,9 @@
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.csproj.AssemblyReference.cache
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.AssemblyInfoInputs.cache
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.AssemblyInfo.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\appsettings.json
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.WebAPI.exe
@@ -20,19 +26,14 @@ C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebA
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.Business.dll
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.Core.dll
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.DataAccess.dll
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.Entity.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.Business.pdb
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.DataAccess.pdb
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.Core.pdb
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.Entity.pdb
-C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.csproj.AssemblyReference.cache
-C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.AssemblyInfoInputs.cache
-C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.AssemblyInfo.cs
-C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.csproj.CoreCompileInputs.cache
-C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.InvoiceManagementSystem.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.build.InvoiceManagementSystem.WebAPI.props
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.InvoiceManagementSystem.WebAPI.props
@@ -47,5 +48,3 @@ C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebA
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.pdb
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.genruntimeconfig.cache
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\ref\InvoiceManagementSystem.WebAPI.dll
-C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.Business.dll
-C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\InvoiceManagementSystem.Business.pdb

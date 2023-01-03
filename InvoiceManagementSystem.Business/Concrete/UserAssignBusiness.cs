@@ -2,6 +2,7 @@
 using InvoiceManagementSystem.Core.Utilities.Result;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Concrete;
+using InvoiceManagementSystem.Entity.Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,35 +14,54 @@ namespace InvoiceManagementSystem.Business.Concrete
     public class UserAssignBusiness : IUserAssignBusiness
     {
         private readonly IUserAssignRepository _userAssignRepository;
+        private readonly ISuiteBusiness _suiteBusiness;
 
-        public UserAssignBusiness(IUserAssignRepository userAssignRepository)
+        public UserAssignBusiness(IUserAssignRepository userAssignRepository, ISuiteBusiness suiteBusiness)
         {
             _userAssignRepository = userAssignRepository;
+            _suiteBusiness = suiteBusiness;
         }
 
-        public IResult UserAssign(UserAssign userAssign)
+        public IResult UserAssign(UserAssignDto userAssignDto)
         {
-            var user = _userAssignRepository.Get(x => x.UserId != userAssign.UserId && x.SuiteId == userAssign.SuiteId);
-            if (user == null) 
+            var user = _userAssignRepository.Get(x => x.UserId == userAssignDto.UserId && x.SuiteId == userAssignDto.SuiteId);
+            if (user == null)
             {
-                _userAssignRepository.Insert(new Entity.Entities.Concrete.UserAssign
+                _userAssignRepository.Insert(new UserAssign
                 {
-                    SuiteId = userAssign.SuiteId,
-                    UserId = userAssign.UserId,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now,
+                    SuiteId = userAssignDto.SuiteId,
+                    UserId = userAssignDto.UserId,
                 });
-                return new SuccessResult();
+                return new SuccessResult("Daire seçiminiz tamamlanmıştır ve yönetici onayına sunulmuştur.");
             }
-            return new ErrorResult();
+            return new ErrorResult("Daire seçiminde bir hata oluştu.");
         }
 
         public IDataResult<List<UserAssign>> UserAssignChecklist()
         {
-            var userAssignList = _userAssignRepository.GetAll(x=>x.IsActive);
-            if (userAssignList.Count>0)
+            var userAssignList = _userAssignRepository.GetAll(x => x.IsActive && x.IsManagementApprove != true);
+            if (userAssignList.Count > 0)
             {
                 return new SuccessDataResult<List<UserAssign>>(userAssignList);
             }
-            return new ErrorDataResult<List<UserAssign>>("");
+            return new ErrorDataResult<List<UserAssign>>("Daire onayı için yönetici listesi bulunamadı.");
+        }
+
+        public IResult UserAssignManagementApprove(UserAssignManagementDto userAssignManagementDto)
+        {
+            var userAssign = _userAssignRepository.Get(x => x.UserId == userAssignManagementDto.UserId && x.SuiteId == userAssignManagementDto.SuiteId);
+            IResult result = new ErrorResult();
+            if (userAssign != null)
+            {
+                userAssign.UpdatedDate = DateTime.Now;
+                userAssign.IsManagementApprove = true;
+                _userAssignRepository.Update(userAssign);
+                result = _suiteBusiness.AssignUser(userAssignManagementDto.UserId, userAssignManagementDto.SuiteId);
+                return new SuccessResult(result.Message);
+            }
+            return new ErrorResult(result.Message);
         }
     }
 }

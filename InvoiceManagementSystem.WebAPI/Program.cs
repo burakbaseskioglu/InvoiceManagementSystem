@@ -24,6 +24,9 @@ builder.Services.AddSingleton<IUserBusiness, UserBusiness>();
 builder.Services.AddSingleton<IDuesRepository, DuesRepository>();
 builder.Services.AddSingleton<IDuesBusiness, DuesBusiness>();
 
+builder.Services.AddSingleton<IUserAssignRepository, UserAssignRepository>();
+builder.Services.AddSingleton<IUserAssignBusiness, UserAssignBusiness>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
