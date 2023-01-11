@@ -1,7 +1,9 @@
 using InvoiceManagementSystem.Business.Abstract;
 using InvoiceManagementSystem.Business.Concrete;
+using InvoiceManagementSystem.DataAccess;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.DataAccess.Concrete.EntityFramework;
+using InvoiceManagementSystem.Entity.Entities.Concrete.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,20 +14,23 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IApartmentRepository, ApartmentRepository>();
-builder.Services.AddSingleton<IApartmentBusiness, ApartmentBusiness>();
+builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<AppDbContext>();
 
-builder.Services.AddSingleton<ISuiteRepository, SuiteRepository>();
-builder.Services.AddSingleton<ISuiteBusiness, SuiteBusiness>();
+builder.Services.AddScoped<IApartmentRepository, ApartmentRepository>();
+builder.Services.AddScoped<IApartmentBusiness, ApartmentBusiness>();
 
-builder.Services.AddSingleton<IUserRepository, UserRepository>();
-builder.Services.AddSingleton<IUserBusiness, UserBusiness>();
+builder.Services.AddScoped<ISuiteRepository, SuiteRepository>();
+builder.Services.AddScoped<ISuiteBusiness, SuiteBusiness>();
 
-builder.Services.AddSingleton<IDuesRepository, DuesRepository>();
-builder.Services.AddSingleton<IDuesBusiness, DuesBusiness>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserBusiness, UserBusiness>();
 
-builder.Services.AddSingleton<IUserAssignRepository, UserAssignRepository>();
-builder.Services.AddSingleton<IUserAssignBusiness, UserAssignBusiness>();
+builder.Services.AddScoped<IDuesRepository, DuesRepository>();
+builder.Services.AddScoped<IDuesBusiness, DuesBusiness>();
+
+builder.Services.AddScoped<IUserAssignRepository, UserAssignRepository>();
+builder.Services.AddScoped<IUserAssignBusiness, UserAssignBusiness>();
 
 var app = builder.Build();
 

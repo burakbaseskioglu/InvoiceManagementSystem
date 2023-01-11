@@ -13,7 +13,7 @@ namespace InvoiceManagementSystem.Business.Abstract
     {
         IDataResult<List<UserDto>> GetAll();
         IDataResult<UserDto> GetById(int userId);
-        IResult Insert(UserInsertDto userInsertDto);
+        Task<IResult> Insert(UserInsertDto userInsertDto);
         IResult Update(UserInsertDto userInsertDto);
         IResult Delete(int userId);
         IDataResult<User> GetUser(int userId);

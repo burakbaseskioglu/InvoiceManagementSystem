@@ -29,9 +29,9 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         }
 
         [HttpPost("InsertUser")]
-        public IActionResult Insert(UserInsertDto userInsertDto)
+        public async Task<IActionResult> Insert(UserInsertDto userInsertDto)
         {
-            return Ok(_userBusiness.Insert(userInsertDto));
+            return Ok(await _userBusiness.Insert(userInsertDto));
         }
 
         [HttpPut("UpdateUser")]

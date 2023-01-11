@@ -2,23 +2,28 @@
 using InvoiceManagementSystem.Core.Utilities.Result;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Concrete;
+using InvoiceManagementSystem.Entity.Entities.Concrete.Identity;
 using InvoiceManagementSystem.Entity.Entities.Dto;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
     public class UserBusiness : IUserBusiness
     {
         private readonly IUserRepository _userRepository;
+        private readonly UserManager<AppUser> _userManager;
 
-        public UserBusiness(IUserRepository userRepository)
+        public UserBusiness(IUserRepository userRepository, UserManager<AppUser> userManager)
         {
             _userRepository = userRepository;
+            _userManager = userManager;
         }
 
         public IResult Delete(int userId)
@@ -96,27 +101,45 @@ namespace InvoiceManagementSystem.Business.Concrete
             return new ErrorDataResult<User>(user);
         }
 
-        public IResult Insert(UserInsertDto userInsertDto)
+        public async Task<IResult> Insert(UserInsertDto userInsertDto)
         {
-
-            var user = _userRepository.Get(x => x.IdentityNumber == userInsertDto.IdentityNumber && x.IsActive == true);
-            if (user == null)
+            using (TransactionScope scope = new TransactionScope())
             {
-                _userRepository.Insert(new User
+                try
                 {
-                    CreatedDate = DateTime.Now,
-                    IsActive = true,
-                    Firstname = userInsertDto.Firstname,
-                    Lastname = userInsertDto.Lastname,
-                    IdentityNumber = userInsertDto.IdentityNumber,
-                    Email = userInsertDto.Email,
-                    Phone = userInsertDto.Phone,
-                    LicensePlate = userInsertDto.LicensePlate,
-                    IsManagement = userInsertDto.IsManagement
-                });
-                return new SuccessResult("Kullanıcı oluşturuldu.");
+                    var user = _userRepository.Get(x => x.IdentityNumber == userInsertDto.IdentityNumber && x.IsActive == true);
+                    if (user == null)
+                    {
+                        await _userRepository.InsertAsync(new User
+                        {
+                            CreatedDate = DateTime.Now,
+                            IsActive = true,
+                            Firstname = userInsertDto.Firstname,
+                            Lastname = userInsertDto.Lastname,
+                            IdentityNumber = userInsertDto.IdentityNumber,
+                            Email = userInsertDto.Email,
+                            Phone = userInsertDto.Phone,
+                            LicensePlate = userInsertDto.LicensePlate,
+                            IsManagement = userInsertDto.IsManagement
+                        });
+
+                        var appUser = new AppUser
+                        {
+                            UserName = userInsertDto.Email,
+                            Email = userInsertDto.Email,
+                        };
+                        await _userManager.CreateAsync(appUser);
+                        scope.Complete();
+                        return new SuccessResult("Kullanıcı oluşturuldu.");
+                    }
+                    return new ErrorResult("Bu hesap zaten mevcut.");
+                }
+                catch (Exception)
+                {
+                    scope.Dispose();
+                    return new ErrorResult();
+                }
             }
-            return new ErrorResult();
         }
 
         public IResult Update(UserInsertDto userInsertDto)

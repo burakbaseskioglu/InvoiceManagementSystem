@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "RM6v1kAjqJ3lH9bmQVAlIsCKHB56c2I5azbb1njV1LHFCWh12kErkSM27DFurXWh3+baD5sbwuZ9GGcjR1S+zQ==",
+  "dgSpecHash": "NQqzLYmCsynoNNWtDubDVbZt0bORRxOYE0Gmo8eo1JBAXIJHgrLISkCrE8j0ZAFCHXi+kNTR3m2AtvWPOzmz4w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Burak\\source\\repos\\InvoiceManagementSystem\\InvoiceManagementSystem.Core\\InvoiceManagementSystem.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Burak\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0\\microsoft.entityframeworkcore.7.0.0.nupkg.sha512",
-    "C:\\Users\\Burak\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512",
-    "C:\\Users\\Burak\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.0\\microsoft.entityframeworkcore.analyzers.7.0.0.nupkg.sha512",
+    "C:\\Users\\Burak\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.2\\microsoft.entityframeworkcore.7.0.2.nupkg.sha512",
+    "C:\\Users\\Burak\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.2\\microsoft.entityframeworkcore.abstractions.7.0.2.nupkg.sha512",
+    "C:\\Users\\Burak\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.2\\microsoft.entityframeworkcore.analyzers.7.0.2.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",

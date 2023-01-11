@@ -45,9 +45,19 @@ namespace InvoiceManagementSystem.Core.DataAccess.EntityFramework
             }
         }
 
+        public async Task InsertAsync(T entity)
+        {
+            using (TContext context = new TContext())
+            {
+                var addedEntity = context.Entry(entity);
+                addedEntity.State = EntityState.Added;
+                await context.SaveChangesAsync();
+            }
+        }
+
         public void InsertRange(List<T> entity)
         {
-            using (TContext context = new TContext()) 
+            using (TContext context = new TContext())
             {
                 context.Set<T>().AddRange(entity);
                 context.SaveChanges();
@@ -66,7 +76,7 @@ namespace InvoiceManagementSystem.Core.DataAccess.EntityFramework
 
         public void UpdateRange(List<T> entities)
         {
-            using (TContext context = new TContext()) 
+            using (TContext context = new TContext())
             {
                 context.Set<T>().UpdateRange(entities);
                 context.SaveChanges();

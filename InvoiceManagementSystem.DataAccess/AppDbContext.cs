@@ -1,14 +1,12 @@
 ﻿using InvoiceManagementSystem.Entity.Entities.Concrete;
+using InvoiceManagementSystem.Entity.Entities.Concrete.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace InvoiceManagementSystem.DataAccess
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,6 +26,7 @@ namespace InvoiceManagementSystem.DataAccess
 
             //modelBuilder.Entity<Suite>().HasOne<User>().WithMany().HasForeignKey(x => x.UserId);
             //modelBuilder.Entity<Suite>().HasOne<Apartment>().WithMany().HasForeignKey(x => x.ApartmentId);
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Apartment> Apartments { get; set; }

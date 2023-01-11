@@ -48,3 +48,10 @@ C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebA
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.pdb
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.genruntimeconfig.cache
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\ref\InvoiceManagementSystem.WebAPI.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\System.Security.Permissions.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.MvcApplicationPartsAssemblyInfo.cs
