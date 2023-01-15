@@ -1,5 +1,6 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
 using InvoiceManagementSystem.Business.Concrete;
+using InvoiceManagementSystem.Core.Utilities.Security.Hashing;
 using InvoiceManagementSystem.Entity.Entities.Dto;
 using Microsoft.AspNetCore.Mvc;
 
@@ -44,6 +45,12 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         public IActionResult Delete(int userId)
         {
             return Ok(_userBusiness.Delete(userId));
+        }
+
+        [HttpPost("UserLogin")]
+        public IActionResult Login(UserLoginDto userLoginDto)
+        {
+            return Ok(_userBusiness.Login(userLoginDto));
         }
     }
 }

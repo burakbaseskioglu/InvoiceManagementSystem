@@ -1,17 +1,14 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
+using InvoiceManagementSystem.Core.Enums;
 using InvoiceManagementSystem.Core.Utilities.Result;
+using InvoiceManagementSystem.Core.Utilities.Security.Hashing;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Concrete;
 using InvoiceManagementSystem.Entity.Entities.Concrete.Identity;
 using InvoiceManagementSystem.Entity.Entities.Dto;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
+using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
@@ -103,55 +100,78 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public async Task<IResult> Insert(UserInsertDto userInsertDto)
         {
-            using (TransactionScope scope = new TransactionScope())
+            try
             {
-                try
+                var user = _userRepository.Get(x => x.IdentityNumber == userInsertDto.IdentityNumber && x.IsActive == true);
+                if (user == null)
                 {
-                    var user = _userRepository.Get(x => x.IdentityNumber == userInsertDto.IdentityNumber && x.IsActive == true);
-                    if (user == null)
+                    PasswordHash passwordHash = new PasswordHash();
+                    var saltValue = passwordHash.GenerateSaltHash();
+                    var hashPassword = passwordHash.HashPassword(userInsertDto.Password, saltValue);
+                    await _userRepository.InsertAsync(new User
                     {
-                        await _userRepository.InsertAsync(new User
-                        {
-                            CreatedDate = DateTime.Now,
-                            IsActive = true,
-                            Firstname = userInsertDto.Firstname,
-                            Lastname = userInsertDto.Lastname,
-                            IdentityNumber = userInsertDto.IdentityNumber,
-                            Email = userInsertDto.Email,
-                            Phone = userInsertDto.Phone,
-                            LicensePlate = userInsertDto.LicensePlate,
-                            IsManagement = userInsertDto.IsManagement
-                        });
+                        CreatedDate = DateTime.Now,
+                        IsActive = true,
+                        Firstname = userInsertDto.Firstname,
+                        Lastname = userInsertDto.Lastname,
+                        IdentityNumber = userInsertDto.IdentityNumber,
+                        Email = userInsertDto.Email,
+                        PasswordHash = hashPassword,
+                        PasswordSalt = saltValue,
+                        Phone = userInsertDto.Phone,
+                        LicensePlate = userInsertDto.LicensePlate,
+                        IsManagement = userInsertDto.IsManagement
+                    });
 
-                        var appUser = new AppUser
-                        {
-                            UserName = userInsertDto.Email,
-                            Email = userInsertDto.Email,
-                        };
-                        await _userManager.CreateAsync(appUser);
-                        scope.Complete();
-                        return new SuccessResult("Kullanıcı oluşturuldu.");
+                    var appUser = new AppUser
+                    {
+                        UserName = userInsertDto.Email,
+                        Email = userInsertDto.Email,
+                    };
+                    IdentityResult result = await _userManager.CreateAsync(appUser);
+                    if (result.Succeeded)
+                    {
+                        await _userManager.AddToRoleAsync(appUser, UserRole.User);
                     }
-                    return new ErrorResult("Bu hesap zaten mevcut.");
+
+                    return new SuccessResult("Kullanıcı oluşturuldu.");
                 }
-                catch (Exception)
-                {
-                    scope.Dispose();
-                    return new ErrorResult();
-                }
+                return new ErrorResult("Bu e-posta hesabı zaten tanımlı.");
             }
+            catch (Exception)
+            {
+                return new ErrorResult($"{HttpStatusCode.BadRequest}");
+            }
+        }
+
+        public IResult Login(UserLoginDto userLoginDto)
+        {
+            var user = _userRepository.Get(x => x.Email == userLoginDto.Email);
+            if (user != null)
+            {
+                PasswordHash passwordHash = new PasswordHash();
+                var compare = passwordHash.VerifyPassword(userLoginDto.Password, user.PasswordHash, user.PasswordSalt);
+                if (compare)
+                {
+                    return new SuccessResult("Başarıyla giriş yapıldı.");
+                }
+
+                return new ErrorResult("E-email veya parola hatalı.");
+            }
+            return new ErrorResult("Kullanıcı bulunamadı.");
         }
 
         public IResult Update(UserInsertDto userInsertDto)
         {
-            var user = _userRepository.Get(x => x.Id == 1 && x.IsActive == true);
+            var user = _userRepository.Get(x => x.Email == userInsertDto.Email && x.IsActive == true);
             if (user != null)
             {
+
+
                 user.UpdatedDate = DateTime.Now;
                 user.Firstname = user.Firstname != default ? userInsertDto.Firstname : user.Firstname;
                 user.Lastname = user.Lastname != default ? userInsertDto.Lastname : user.Lastname;
                 user.IdentityNumber = user.IdentityNumber != default ? userInsertDto.IdentityNumber : user.IdentityNumber;
-                user.Email = user.Email != default ? userInsertDto.Email : user.Email;
                 user.Phone = user.Phone != default ? userInsertDto.Phone : user.Phone;
                 user.LicensePlate = user.LicensePlate != default ? userInsertDto.LicensePlate : user.LicensePlate;
                 user.IsManagement = user.IsManagement != default ? userInsertDto.IsManagement : user.IsManagement;

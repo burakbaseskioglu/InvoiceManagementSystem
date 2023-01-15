@@ -14,6 +14,8 @@ namespace InvoiceManagementSystem.Entity.Entities.Concrete
         public string Lastname { get; set; }
         public long IdentityNumber { get; set; }
         public string Email { get; set; }
+        public string PasswordHash { get; set; }
+        public string PasswordSalt { get; set; }
         public string Phone { get; set; }
         public string LicensePlate { get; set; }
         public bool IsManagement { get; set; }
