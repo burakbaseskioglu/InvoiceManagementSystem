@@ -1,12 +1,15 @@
 using InvoiceManagementSystem.Business.Abstract;
 using InvoiceManagementSystem.Business.Concrete;
+using InvoiceManagementSystem.Core.Utilities.Security.JWT;
 using InvoiceManagementSystem.DataAccess;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.DataAccess.Concrete.EntityFramework;
 using InvoiceManagementSystem.Entity.Entities.Concrete.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -31,6 +34,29 @@ builder.Services.AddScoped<IDuesBusiness, DuesBusiness>();
 
 builder.Services.AddScoped<IUserAssignRepository, UserAssignRepository>();
 builder.Services.AddScoped<IUserAssignBusiness, UserAssignBusiness>();
+
+builder.Services.AddScoped<ITokenService, TokenService>();
+
+builder.Services.AddAuthentication(opt =>
+{
+    opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opt =>
+{
+    opt.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidIssuer = builder.Configuration["JwtOptions:Issuer"],
+        ValidateIssuer = true,
+        ValidAudience = builder.Configuration["JwtOptions:Audience"],
+        ValidateAudience = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtOptions:SecurityKey"])),
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+
 
 var app = builder.Build();
 

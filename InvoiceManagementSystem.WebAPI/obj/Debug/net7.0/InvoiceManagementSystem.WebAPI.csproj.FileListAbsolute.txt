@@ -55,3 +55,11 @@ C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebA
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\System.Security.Permissions.dll
 C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\obj\Debug\net7.0\InvoiceManagementSystem.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Burak\source\repos\InvoiceManagementSystem\InvoiceManagementSystem.WebAPI\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

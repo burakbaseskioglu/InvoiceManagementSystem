@@ -2,6 +2,7 @@
 using InvoiceManagementSystem.Core.Enums;
 using InvoiceManagementSystem.Core.Utilities.Result;
 using InvoiceManagementSystem.Core.Utilities.Security.Hashing;
+using InvoiceManagementSystem.Core.Utilities.Security.JWT;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Concrete;
 using InvoiceManagementSystem.Entity.Entities.Concrete.Identity;
@@ -16,11 +17,13 @@ namespace InvoiceManagementSystem.Business.Concrete
     {
         private readonly IUserRepository _userRepository;
         private readonly UserManager<AppUser> _userManager;
+        private readonly ITokenService _tokenService;
 
-        public UserBusiness(IUserRepository userRepository, UserManager<AppUser> userManager)
+        public UserBusiness(IUserRepository userRepository, UserManager<AppUser> userManager, ITokenService tokenService)
         {
             _userRepository = userRepository;
             _userManager = userManager;
+            _tokenService = tokenService;
         }
 
         public IResult Delete(int userId)
@@ -151,6 +154,7 @@ namespace InvoiceManagementSystem.Business.Concrete
             {
                 PasswordHash passwordHash = new PasswordHash();
                 var compare = passwordHash.VerifyPassword(userLoginDto.Password, user.PasswordHash, user.PasswordSalt);
+                var token = _tokenService.CreateAccessToken();
                 if (compare)
                 {
                     return new SuccessResult("Başarıyla giriş yapıldı.");

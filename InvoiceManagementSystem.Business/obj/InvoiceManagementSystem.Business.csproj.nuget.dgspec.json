@@ -105,6 +105,18 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.2, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.26.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.15.1, )"
             }
           },
           "imports": [

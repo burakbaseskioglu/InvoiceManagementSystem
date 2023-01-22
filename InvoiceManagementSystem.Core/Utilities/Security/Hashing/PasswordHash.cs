@@ -20,6 +20,7 @@ namespace InvoiceManagementSystem.Core.Utilities.Security.Hashing
 
         public string HashPassword(string password, string salt) 
         {
+            
             var hash = Rfc2898DeriveBytes.Pbkdf2(Encoding.UTF8.GetBytes(password), Encoding.UTF8.GetBytes(salt), iterations, HashAlgorithmName.SHA512, keySize);
             return Convert.ToBase64String(hash);
         }
