@@ -18,34 +18,29 @@ namespace InvoiceManagementSystem.Core.Utilities.Security.JWT
             Configuration = configuration;
         }
 
-        //public string CreateAccessToken()
-        //{
-        //    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("JwtTokenOptions:SecurityKey").ToString()));
-        //    var signInCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha512);
-        //    var tokenHandler = new JwtSecurityTokenHandler();
-        //    var tokenDescriptor = new SecurityTokenDescriptor
-        //    {
-        //        SigningCredentials = signInCredentials,
-        //        Expires = DateTime.Now.AddMinutes(30)
-        //    };
-        //    var token = tokenHandler.CreateToken(tokenDescriptor);
-        //    return tokenHandler.WriteToken(token);
-        //}
-
-        public string CreateAccessToken()
+        public AccessToken CreateAccessToken()
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("JwtTokenOptions:SecurityKey").ToString()));
-            var signInCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha512);
+            var tokenExpireTime = DateTime.Now.AddMinutes(30);
+            var securityKey = Configuration.GetSection("JwtOptions:SecurityKey").Value;
+            var symmetricKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey!));
+            var signinCredentials = new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha512);
             var jwtToken = new JwtSecurityToken(
-                issuer: Configuration.GetSection("").ToString(),
-                audience: Configuration.GetSection("").ToString(),
-                expires: DateTime.Now.AddMinutes(30),
-                notBefore: DateTime.Now,
-                signingCredentials: signInCredentials
+                issuer: Configuration.GetSection("JwtOptions:Issuer").Value,
+                audience: Configuration.GetSection("JwtOptions:Audience").Value,
+                signingCredentials: signinCredentials,
+                expires: tokenExpireTime,
+                notBefore: DateTime.Now
                 );
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.WriteToken(jwtToken);
-            return token;
+
+            var accessToken = new AccessToken
+            {
+                Token = token,
+                ExpireTime = tokenExpireTime
+            };
+
+            return accessToken;
         }
     }
 }

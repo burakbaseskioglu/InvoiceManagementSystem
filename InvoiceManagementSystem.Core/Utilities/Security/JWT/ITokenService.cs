@@ -8,6 +8,6 @@ namespace InvoiceManagementSystem.Core.Utilities.Security.JWT
 {
     public interface ITokenService
     {
-        string CreateAccessToken();
+        AccessToken CreateAccessToken();
     }
 }
