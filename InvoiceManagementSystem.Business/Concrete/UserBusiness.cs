@@ -7,6 +7,7 @@ using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Concrete;
 using InvoiceManagementSystem.Entity.Entities.Concrete.Identity;
 using InvoiceManagementSystem.Entity.Entities.Dto;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System.Net;
 using System.Text;
@@ -18,12 +19,16 @@ namespace InvoiceManagementSystem.Business.Concrete
         private readonly IUserRepository _userRepository;
         private readonly UserManager<AppUser> _userManager;
         private readonly ITokenService _tokenService;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly IHttpContextAccessor _http;
 
-        public UserBusiness(IUserRepository userRepository, UserManager<AppUser> userManager, ITokenService tokenService)
+        public UserBusiness(IUserRepository userRepository, UserManager<AppUser> userManager, ITokenService tokenService, SignInManager<AppUser> signInManager, IHttpContextAccessor http)
         {
             _userRepository = userRepository;
             _userManager = userManager;
             _tokenService = tokenService;
+            _signInManager = signInManager;
+            _http = http;
         }
 
         public IResult Delete(int userId)
@@ -130,8 +135,9 @@ namespace InvoiceManagementSystem.Business.Concrete
                     {
                         UserName = userInsertDto.Email,
                         Email = userInsertDto.Email,
+                        // PasswordHash= hashPassword,
                     };
-                    IdentityResult result = await _userManager.CreateAsync(appUser);
+                    IdentityResult result = await _userManager.CreateAsync(appUser, userInsertDto.Password);
                     if (result.Succeeded)
                     {
                         await _userManager.AddToRoleAsync(appUser, UserRole.User);
@@ -157,6 +163,8 @@ namespace InvoiceManagementSystem.Business.Concrete
                 var token = _tokenService.CreateAccessToken();
                 if (compare)
                 {
+                    SignInResult result = _signInManager.PasswordSignInAsync(userLoginDto.Email, userLoginDto.Password, false, true).GetAwaiter().GetResult();
+                    var test = _http.HttpContext.User.Identity.Name;
                     return new SuccessResult("Başarıyla giriş yapıldı.");
                 }
 

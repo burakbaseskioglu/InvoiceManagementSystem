@@ -19,5 +19,7 @@ namespace InvoiceManagementSystem.Entity.Entities.Concrete
         public string Phone { get; set; }
         public string LicensePlate { get; set; }
         public bool IsManagement { get; set; }
+        public string RefreshToken { get; set; }
+        public DateTime ExpireDate { get; set; }
     }
 }

@@ -14,6 +14,6 @@ namespace InvoiceManagementSystem.Business.Abstract
         IResult Login(UserLoginDto userLoginDto);
         IResult Register(UserLoginDto userLoginDto);
         IDataResult<AccessToken> CreateToken();
-
+        IDataResult<AccessToken> TokenControl(string refreshToken);
     }
 }

@@ -338,6 +338,9 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<DateTime>("ExpireDate")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("Firstname")
                         .IsRequired()
                         .HasColumnType("text");
@@ -368,6 +371,10 @@ namespace InvoiceManagementSystem.DataAccess.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("RefreshToken")
                         .IsRequired()
                         .HasColumnType("text");
 
