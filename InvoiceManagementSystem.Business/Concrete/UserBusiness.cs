@@ -135,7 +135,8 @@ namespace InvoiceManagementSystem.Business.Concrete
                     {
                         UserName = userInsertDto.Email,
                         Email = userInsertDto.Email,
-                        // PasswordHash= hashPassword,
+                         
+                        PasswordHash= hashPassword,
                     };
                     IdentityResult result = await _userManager.CreateAsync(appUser, userInsertDto.Password);
                     if (result.Succeeded)

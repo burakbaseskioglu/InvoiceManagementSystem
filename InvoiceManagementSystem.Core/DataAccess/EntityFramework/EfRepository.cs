@@ -10,6 +10,14 @@ namespace InvoiceManagementSystem.Core.DataAccess.EntityFramework
 {
     public class EfRepository<T, TContext> : IRepository<T> where T : class where TContext : DbContext, new()
     {
+        public bool Any(Expression<Func<T, bool>> predicate)
+        {
+            using (TContext context = new TContext())
+            {
+                return context.Set<T>().Any(predicate);
+            }
+        }
+
         public void Delete(T entiny)
         {
             using (TContext context = new TContext())

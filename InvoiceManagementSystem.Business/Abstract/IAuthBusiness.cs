@@ -11,7 +11,7 @@ namespace InvoiceManagementSystem.Business.Abstract
 {
     public interface IAuthBusiness
     {
-        IResult Login(UserLoginDto userLoginDto);
+        Task<IDataResult<AccessToken>> Login(UserLoginDto userLoginDto);
         IResult Register(UserLoginDto userLoginDto);
         IDataResult<AccessToken> CreateToken();
         IDataResult<AccessToken> TokenControl(string refreshToken);

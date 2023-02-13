@@ -1,5 +1,6 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
 using InvoiceManagementSystem.Core.Utilities.Security.JWT;
+using InvoiceManagementSystem.Entity.Entities.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceManagementSystem.WebAPI.Controllers
@@ -25,6 +26,12 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         public IActionResult TokenControl(string refreshToken)
         {
             return Ok(_authBusiness.TokenControl(refreshToken));
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(UserLoginDto userLoginDto)
+        {
+            return Ok(await _authBusiness.Login(userLoginDto));
         }
     }
 }

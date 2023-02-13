@@ -17,5 +17,6 @@ namespace InvoiceManagementSystem.Core.DataAccess.EntityFramework
         void UpdateRange(List<T> entities);
         T Get(Expression<Func<T, bool>> predicate);
         List<T> GetAll(Expression<Func<T, bool>> predicate = null);
+        bool Any(Expression<Func<T, bool>> predicate);
     }
 }
