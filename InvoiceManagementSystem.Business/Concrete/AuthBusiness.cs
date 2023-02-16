@@ -6,6 +6,7 @@ using InvoiceManagementSystem.Entity.Entities.Concrete.Identity;
 using InvoiceManagementSystem.Entity.Entities.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
@@ -28,18 +29,18 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<AccessToken> CreateToken()
         {
-            var token = _tokenService.CreateAccessToken();
+            //var token = _tokenService.CreateAccessToken();
 
-            if (token != null)
-            {
-                var refreshToken = _tokenService.CreateRefreshToken();
-                var user = _userRepository.Get(x => x.Email == "test12@test.com");
-                user.RefreshToken = refreshToken.Token;
-                user.ExpireDate = refreshToken.ExpireDate;
-                _userRepository.Update(user);
+            //if (token != null)
+            //{
+            //    var refreshToken = _tokenService.CreateRefreshToken();
+            //    var user = _userRepository.Get(x => x.Email == "test12@test.com");
+            //    user.RefreshToken = refreshToken.Token;
+            //    user.ExpireDate = refreshToken.ExpireDate;
+            //    _userRepository.Update(user);
 
-                return new SuccessDataResult<AccessToken>(token);
-            }
+            //    return new SuccessDataResult<AccessToken>(token);
+            //}
             return new ErrorDataResult<AccessToken>("Token oluşturulamadı.");
         }
 
@@ -52,7 +53,12 @@ namespace InvoiceManagementSystem.Business.Concrete
                 SignInResult signinResult = await _signInManager.PasswordSignInAsync(userIdentity, userLoginDto.Password, false, true);
                 if (signinResult.Succeeded)
                 {
-                    var createToken = _tokenService.CreateAccessToken();
+                    var claims = new List<Claim>
+                    {
+                        new(ClaimTypes.Name, $"{user.Firstname} {user.Lastname}"),
+                        new(ClaimTypes.Email, user.Email)
+                    };
+                    var createToken = _tokenService.CreateAccessToken(claims);
                     var token = new AccessToken
                     {
                         Token = createToken.Token,
@@ -63,7 +69,6 @@ namespace InvoiceManagementSystem.Business.Concrete
                     user.ExpireDate = createRefreshToken.ExpireDate;
                     _userRepository.Update(user);
 
-                    var result = _httpContextAccessor.HttpContext.User.Identity.Name;
                     return new SuccessDataResult<AccessToken>(token);
                 }
             }
@@ -78,21 +83,21 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<AccessToken> TokenControl(string refreshToken)
         {
-            var userToken = _userRepository.Get(x => x.IsActive && x.RefreshToken == refreshToken && x.ExpireDate > DateTime.Now);
-            if (userToken != null)
-            {
-                var token = _tokenService.CreateAccessToken();
-                if (token != null)
-                {
-                    return new SuccessDataResult<AccessToken>(token);
-                }
-            }
-            else
-            {
-                userToken.RefreshToken = null;
-                userToken.ExpireDate = null;
-                _userRepository.Update(userToken);
-            }
+            //var userToken = _userRepository.Get(x => x.IsActive && x.RefreshToken == refreshToken && x.ExpireDate > DateTime.Now);
+            //if (userToken != null)
+            //{
+            //    var token = _tokenService.CreateAccessToken();
+            //    if (token != null)
+            //    {
+            //        return new SuccessDataResult<AccessToken>(token);
+            //    }
+            //}
+            //else
+            //{
+            //    userToken.RefreshToken = null;
+            //    userToken.ExpireDate = null;
+            //    _userRepository.Update(userToken);
+            //}
             return new ErrorDataResult<AccessToken>("Hata");
         }
     }

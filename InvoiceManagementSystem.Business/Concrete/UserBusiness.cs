@@ -156,21 +156,21 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IResult Login(UserLoginDto userLoginDto)
         {
-            var user = _userRepository.Get(x => x.Email == userLoginDto.Email);
-            if (user != null)
-            {
-                PasswordHash passwordHash = new PasswordHash();
-                var compare = passwordHash.VerifyPassword(userLoginDto.Password, user.PasswordHash, user.PasswordSalt);
-                var token = _tokenService.CreateAccessToken();
-                if (compare)
-                {
-                    SignInResult result = _signInManager.PasswordSignInAsync(userLoginDto.Email, userLoginDto.Password, false, true).GetAwaiter().GetResult();
-                    var test = _http.HttpContext.User.Identity.Name;
-                    return new SuccessResult("Başarıyla giriş yapıldı.");
-                }
+            //var user = _userRepository.Get(x => x.Email == userLoginDto.Email);
+            //if (user != null)
+            //{
+            //    PasswordHash passwordHash = new PasswordHash();
+            //    var compare = passwordHash.VerifyPassword(userLoginDto.Password, user.PasswordHash, user.PasswordSalt);
+            //    var token = _tokenService.CreateAccessToken();
+            //    if (compare)
+            //    {
+            //        SignInResult result = _signInManager.PasswordSignInAsync(userLoginDto.Email, userLoginDto.Password, false, true).GetAwaiter().GetResult();
+            //        var test = _http.HttpContext.User.Identity.Name;
+            //        return new SuccessResult("Başarıyla giriş yapıldı.");
+            //    }
 
-                return new ErrorResult("E-email veya parola hatalı.");
-            }
+            //    return new ErrorResult("E-email veya parola hatalı.");
+            //}
             return new ErrorResult("Kullanıcı bulunamadı.");
         }
 

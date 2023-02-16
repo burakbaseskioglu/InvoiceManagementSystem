@@ -14,14 +14,14 @@ namespace InvoiceManagementSystem.Core.Utilities.Security.JWT
     public class TokenService : ITokenService
     {
         private readonly IConfiguration Configuration;
-        private readonly DateTime tokenExpireDate = DateTime.Now.AddMinutes(2);
+        private readonly DateTime tokenExpireDate = DateTime.Now.AddMinutes(15);
 
         public TokenService(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public AccessToken CreateAccessToken()
+        public AccessToken CreateAccessToken(List<Claim> claims)
         {
             var securityKey = Configuration.GetSection("JwtOptions:SecurityKey").Value;
             var symmetricKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey!));
@@ -33,8 +33,8 @@ namespace InvoiceManagementSystem.Core.Utilities.Security.JWT
                 audience: Configuration.GetSection("JwtOptions:Audience").Value,
                 signingCredentials: signinCredentials,
                 expires: tokenExpireDate,
-                notBefore: DateTime.Now
-
+                notBefore: DateTime.Now,
+                claims: claims
                 );
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.WriteToken(jwtToken);
