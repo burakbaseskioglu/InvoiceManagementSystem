@@ -8,7 +8,7 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    [Authorize(Roles = "Management")]
     public class ApartmentController : Controller
     {
         private readonly IApartmentBusiness _apartmentBusiness;

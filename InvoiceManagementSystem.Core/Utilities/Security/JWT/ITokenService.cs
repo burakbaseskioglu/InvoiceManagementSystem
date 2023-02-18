@@ -10,7 +10,6 @@ namespace InvoiceManagementSystem.Core.Utilities.Security.JWT
     public interface ITokenService
     {
         AccessToken CreateAccessToken(List<Claim> claims);
-
         RefreshToken CreateRefreshToken();
     }
 }

@@ -46,11 +46,5 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         {
             return Ok(_userBusiness.Delete(userId));
         }
-
-        [HttpPost("UserLogin")]
-        public IActionResult Login(UserLoginDto userLoginDto)
-        {
-            return Ok(_userBusiness.Login(userLoginDto));
-        }
     }
 }

@@ -17,18 +17,10 @@ namespace InvoiceManagementSystem.Business.Concrete
     public class UserBusiness : IUserBusiness
     {
         private readonly IUserRepository _userRepository;
-        private readonly UserManager<AppUser> _userManager;
-        private readonly ITokenService _tokenService;
-        private readonly SignInManager<AppUser> _signInManager;
-        private readonly IHttpContextAccessor _http;
 
-        public UserBusiness(IUserRepository userRepository, UserManager<AppUser> userManager, ITokenService tokenService, SignInManager<AppUser> signInManager, IHttpContextAccessor http)
+        public UserBusiness(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _userManager = userManager;
-            _tokenService = tokenService;
-            _signInManager = signInManager;
-            _http = http;
         }
 
         public IResult Delete(int userId)
@@ -103,7 +95,7 @@ namespace InvoiceManagementSystem.Business.Concrete
             {
                 return new SuccessDataResult<User>(user);
             }
-            return new ErrorDataResult<User>(user);
+            return new ErrorDataResult<User>("Kullanıcı bulunamadı.");
         }
 
         public async Task<IResult> Insert(UserInsertDto userInsertDto)
@@ -113,9 +105,6 @@ namespace InvoiceManagementSystem.Business.Concrete
                 var user = _userRepository.Get(x => x.IdentityNumber == userInsertDto.IdentityNumber && x.IsActive == true);
                 if (user == null)
                 {
-                    PasswordHash passwordHash = new PasswordHash();
-                    var saltValue = passwordHash.GenerateSaltHash();
-                    var hashPassword = passwordHash.HashPassword(userInsertDto.Password, saltValue);
                     await _userRepository.InsertAsync(new User
                     {
                         CreatedDate = DateTime.Now,
@@ -124,26 +113,10 @@ namespace InvoiceManagementSystem.Business.Concrete
                         Lastname = userInsertDto.Lastname,
                         IdentityNumber = userInsertDto.IdentityNumber,
                         Email = userInsertDto.Email,
-                        PasswordHash = hashPassword,
-                        PasswordSalt = saltValue,
                         Phone = userInsertDto.Phone,
                         LicensePlate = userInsertDto.LicensePlate,
                         IsManagement = userInsertDto.IsManagement
                     });
-
-                    var appUser = new AppUser
-                    {
-                        UserName = userInsertDto.Email,
-                        Email = userInsertDto.Email,
-                         
-                        PasswordHash= hashPassword,
-                    };
-                    IdentityResult result = await _userManager.CreateAsync(appUser, userInsertDto.Password);
-                    if (result.Succeeded)
-                    {
-                        await _userManager.AddToRoleAsync(appUser, UserRole.User);
-                    }
-
                     return new SuccessResult("Kullanıcı oluşturuldu.");
                 }
                 return new ErrorResult("Bu e-posta hesabı zaten tanımlı.");
@@ -154,33 +127,11 @@ namespace InvoiceManagementSystem.Business.Concrete
             }
         }
 
-        public IResult Login(UserLoginDto userLoginDto)
-        {
-            //var user = _userRepository.Get(x => x.Email == userLoginDto.Email);
-            //if (user != null)
-            //{
-            //    PasswordHash passwordHash = new PasswordHash();
-            //    var compare = passwordHash.VerifyPassword(userLoginDto.Password, user.PasswordHash, user.PasswordSalt);
-            //    var token = _tokenService.CreateAccessToken();
-            //    if (compare)
-            //    {
-            //        SignInResult result = _signInManager.PasswordSignInAsync(userLoginDto.Email, userLoginDto.Password, false, true).GetAwaiter().GetResult();
-            //        var test = _http.HttpContext.User.Identity.Name;
-            //        return new SuccessResult("Başarıyla giriş yapıldı.");
-            //    }
-
-            //    return new ErrorResult("E-email veya parola hatalı.");
-            //}
-            return new ErrorResult("Kullanıcı bulunamadı.");
-        }
-
         public IResult Update(UserInsertDto userInsertDto)
         {
             var user = _userRepository.Get(x => x.Email == userInsertDto.Email && x.IsActive == true);
             if (user != null)
             {
-
-
                 user.UpdatedDate = DateTime.Now;
                 user.Firstname = user.Firstname != default ? userInsertDto.Firstname : user.Firstname;
                 user.Lastname = user.Lastname != default ? userInsertDto.Lastname : user.Lastname;

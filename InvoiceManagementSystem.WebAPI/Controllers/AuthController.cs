@@ -16,16 +16,10 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
             _authBusiness = authBusiness;
         }
 
-        [HttpPost("createToken")]
-        public IActionResult CreateToken()
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(UserRegisterDto userRegisterDto)
         {
-            return Ok(_authBusiness.CreateToken());
-        }
-
-        [HttpPost("tokenControl")]
-        public IActionResult TokenControl(string refreshToken)
-        {
-            return Ok(_authBusiness.TokenControl(refreshToken));
+            return Ok(await _authBusiness.Register(userRegisterDto));
         }
 
         [HttpPost("login")]

@@ -12,6 +12,5 @@ namespace InvoiceManagementSystem.Business.Abstract
         IResult Update(UserInsertDto userInsertDto);
         IResult Delete(int userId);
         IDataResult<User> GetUser(int userId);
-        IResult Login(UserLoginDto userLoginDto);
     }
 }

@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace InvoiceManagementSystem.Entity.Entities.Dto
 {
-    public class UserInsertDto
+    public class UserRegisterDto
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }
-        public long IdentityNumber { get; set; }
         public string Email { get; set; }
-        public string Phone { get; set; }
-        public string LicensePlate { get; set; }
-        public bool IsManagement { get; set; }
+        public string Password { get; set; }
+        public string PhoneNumber { get; set; }
+        public long IdentityNumber { get; set; }
     }
 }
