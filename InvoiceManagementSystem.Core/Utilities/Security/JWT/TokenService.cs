@@ -26,8 +26,6 @@ namespace InvoiceManagementSystem.Core.Utilities.Security.JWT
             var securityKey = Configuration.GetSection("JwtOptions:SecurityKey").Value;
             var symmetricKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey!));
             var signinCredentials = new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha512);
-
-
             var jwtToken = new JwtSecurityToken(
                 issuer: Configuration.GetSection("JwtOptions:Issuer").Value,
                 audience: Configuration.GetSection("JwtOptions:Audience").Value,

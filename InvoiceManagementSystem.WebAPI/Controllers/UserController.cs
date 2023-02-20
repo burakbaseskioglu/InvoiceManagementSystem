@@ -2,6 +2,7 @@
 using InvoiceManagementSystem.Business.Concrete;
 using InvoiceManagementSystem.Core.Utilities.Security.Hashing;
 using InvoiceManagementSystem.Entity.Entities.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceManagementSystem.WebAPI.Controllers
@@ -18,13 +19,14 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         }
 
         [HttpGet("GetUsers")]
-        public IActionResult GetApartments()
+        [Authorize(Roles = "Management")]
+        public IActionResult GetUsers()
         {
             return Ok(_userBusiness.GetAll());
         }
 
         [HttpGet("GetUserById")]
-        public IActionResult GetApartmentById(int userId)
+        public IActionResult GetUserById(int userId)
         {
             return Ok(_userBusiness.GetById(userId));
         }

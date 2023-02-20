@@ -41,7 +41,7 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<List<UserAssign>> UserAssignChecklist()
         {
-            var userAssignList = _userAssignRepository.GetAll(x => x.IsActive && x.IsManagementApprove != true);
+            var userAssignList = _userAssignRepository.GetAll(x => x.IsActive && x.IsManagementApprove != true).ToList();
             if (userAssignList.Count > 0)
             {
                 return new SuccessDataResult<List<UserAssign>>(userAssignList);

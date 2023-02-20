@@ -18,20 +18,20 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
             _apartmentBusiness = apartmentBusiness;
         }
 
-        [HttpGet("GetApartment")]
-        public IActionResult GetApartmentByName(string apartmentName) 
+        [HttpGet("SearchApartmentByName")]
+        public IActionResult Search(string apartmentName)
         {
-            return Ok(_apartmentBusiness.GetApartmentByName(apartmentName));
+            return Ok(_apartmentBusiness.SearchByName(apartmentName));
         }
 
         [HttpGet("GetApartments")]
-        public IActionResult GetApartments() 
+        public IActionResult GetApartments()
         {
             return Ok(_apartmentBusiness.GetAll());
         }
 
         [HttpGet("GetApartmentById")]
-        public IActionResult GetApartmentById(int apartmentId) 
+        public IActionResult GetApartmentById(int apartmentId)
         {
             return Ok(_apartmentBusiness.GetApartmentById(apartmentId));
         }

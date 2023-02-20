@@ -15,7 +15,7 @@ namespace InvoiceManagementSystem.Business.Abstract
         IResult Delete(int apartmentId);
         IResult Update(ApartmentDto apartmentDto);
         IDataResult<List<ApartmentDto>> GetAll();
-        IDataResult<ApartmentDto> GetApartmentByName(string apartmentName);
+        IDataResult<List<ApartmentDto>> SearchByName(string apartmentName);
         IDataResult<ApartmentDto> GetApartmentById(int apartmentId);
     }
 }

@@ -9,6 +9,8 @@ using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Dto;
 using InvoiceManagementSystem.Core.Utilities.Result;
 using System.Transactions;
+using System.Reflection.Metadata.Ecma335;
+using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
@@ -36,24 +38,26 @@ namespace InvoiceManagementSystem.Business.Concrete
             return new ErrorResult();
         }
 
-        public IDataResult<ApartmentDto> GetApartmentByName(string apartmentName)
+        public IDataResult<List<ApartmentDto>> SearchByName(string apartmentName)
         {
-            var apartment = _apartmentRepository.Get(x => x.Name.ToLower() == apartmentName.ToLower() && x.IsActive);
-            if (apartment != null)
+            var getAllApartments = _apartmentRepository.GetAll(x => x.IsActive).Select(x => x);
+            if (getAllApartments != null && !string.IsNullOrEmpty(apartmentName))
             {
-                return new SuccessDataResult<ApartmentDto>(
-                    new ApartmentDto
-                    {
-                        Name = apartment.Name,
-                        NumberOfFloor = apartment.NumberOfFloor,
-                        NumberOfSuite = apartment.NumberOfSuite,
-                        Address = apartment.Address,
-                        ApartmentNo = apartment.ApartmentNo,
-                        BlockCode = apartment.BlockCode,
-                        ManagementId = apartment.ManagementId
-                    });
+                var apartments = from apt in getAllApartments
+                                    where apt.Name.ToLower().Contains(apartmentName.ToLower())
+                                    select new ApartmentDto
+                                    {
+                                        Name = apt.Name,
+                                        NumberOfFloor = apt.NumberOfFloor,
+                                        NumberOfSuite = apt.NumberOfSuite,
+                                        Address = apt.Address,
+                                        ApartmentNo = apt.ApartmentNo,
+                                        BlockCode = apt.BlockCode,
+                                        ManagementId = apt.ManagementId
+                                    };
+                return new SuccessDataResult<List<ApartmentDto>>(apartments.ToList());
             }
-            return new ErrorDataResult<ApartmentDto>("Apartman bulunamadı");
+            return new ErrorDataResult<List<ApartmentDto>>("Apartman bulunamadı");
         }
 
         public IDataResult<List<ApartmentDto>> GetAll()
