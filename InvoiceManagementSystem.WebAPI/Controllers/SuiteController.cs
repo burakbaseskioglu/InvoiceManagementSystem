@@ -1,11 +1,15 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
+using InvoiceManagementSystem.Core.Constant;
+using InvoiceManagementSystem.Core.Utilities.Attribute;
 using InvoiceManagementSystem.Entity.Entities.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceManagementSystem.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [AuthorizeRoles(RoleName.Management, RoleName.User)]
     public class SuiteController : Controller
     {
         private readonly ISuiteBusiness _suiteBusiness;
@@ -34,7 +38,7 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         }
 
         [HttpDelete("DeleteSuite")]
-        public IActionResult Delete(int suiteId) 
+        public IActionResult Delete(int suiteId)
         {
             return Ok(_suiteBusiness.Delete(suiteId));
         }

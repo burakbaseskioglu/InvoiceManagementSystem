@@ -1,12 +1,14 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
 using InvoiceManagementSystem.Core.Utilities.Security.JWT;
 using InvoiceManagementSystem.Entity.Entities.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceManagementSystem.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [AllowAnonymous]
     public class AuthController : Controller
     {
         private readonly IAuthBusiness _authBusiness;

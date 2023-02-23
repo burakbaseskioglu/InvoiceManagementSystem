@@ -1,5 +1,7 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
 using InvoiceManagementSystem.Business.Concrete;
+using InvoiceManagementSystem.Core.Constant;
+using InvoiceManagementSystem.Core.Utilities.Attribute;
 using InvoiceManagementSystem.Core.Utilities.Security.Hashing;
 using InvoiceManagementSystem.Entity.Entities.Dto;
 using Microsoft.AspNetCore.Authorization;
@@ -9,6 +11,7 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [AuthorizeRoles(RoleName.User, RoleName.Management)]
     public class UserController : Controller
     {
         private readonly IUserBusiness _userBusiness;

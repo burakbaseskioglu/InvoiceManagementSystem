@@ -1,11 +1,15 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
+using InvoiceManagementSystem.Core.Constant;
+using InvoiceManagementSystem.Core.Utilities.Attribute;
 using InvoiceManagementSystem.Entity.Entities.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceManagementSystem.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/controller")]
+    [AuthorizeRoles(RoleName.Management)]
     public class UserAssignController : Controller
     {
         private readonly IUserAssignBusiness _userAssignBusiness;

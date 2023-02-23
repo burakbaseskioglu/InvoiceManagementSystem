@@ -1,4 +1,6 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
+using InvoiceManagementSystem.Core.Constant;
+using InvoiceManagementSystem.Core.Utilities.Attribute;
 using InvoiceManagementSystem.Entity.Entities.Dto;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -8,7 +10,7 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Management")]
+    [AuthorizeRoles(RoleName.Management)]
     public class ApartmentController : Controller
     {
         private readonly IApartmentBusiness _apartmentBusiness;
