@@ -18,5 +18,6 @@ namespace InvoiceManagementSystem.Business.Abstract
         IResult Update(InsertDuesDto insertDuesDto);
         IResult Delete(int duesId);
         IDataResult<List<DuesDto>> GetAll();
+        IResult PayTheDue(DuesPaymentDto duesPaymentDto);
     }
 }

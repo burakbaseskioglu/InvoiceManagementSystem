@@ -54,5 +54,11 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         {
             return Ok(_duesBusiness.Delete(duesId));
         }
+
+        [HttpPost("PayTheDues")]
+        public IActionResult Pay(DuesPaymentDto duesPaymentDto)
+        {
+            return Ok(_duesBusiness.PayTheDue(duesPaymentDto));
+        }
     }
 }

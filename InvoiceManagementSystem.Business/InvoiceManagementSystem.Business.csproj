@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\InvoiceManagementSystem.DataAccess\InvoiceManagementSystem.DataAccess.csproj" />
     <ProjectReference Include="..\InvoiceManagementSystem.Entity\InvoiceManagementSystem.Entity.csproj" />
+    <ProjectReference Include="..\InvoiceManagementSystem.Publishers\InvoiceManagementSystem.Publishers.csproj" />
   </ItemGroup>
 
 </Project>
