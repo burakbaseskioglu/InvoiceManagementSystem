@@ -187,7 +187,7 @@ namespace InvoiceManagementSystem.Business.Concrete
             var dues = _duesRepository.Get(x => x.Id == duesPaymentDto.Id);
             if (dues != null)
             {
-                _messagePublisher.Publish(duesPaymentDto);
+                _messagePublisher. Publish(duesPaymentDto);
                 return new SuccessResult();
             }
 

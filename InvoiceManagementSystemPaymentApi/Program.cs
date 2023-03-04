@@ -4,6 +4,7 @@ using InvoiceManagementSystemPaymentApi.Business.Abstract;
 using InvoiceManagementSystemPaymentApi.Business.Concrete;
 using InvoiceManagementSystemPaymentApi.Repository.Abstract;
 using InvoiceManagementSystemPaymentApi.Repository.Concrete;
+using InvoiceManagementSystemPaymentApi.Subscriber;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,8 @@ builder.Services.AddCouchbase(opt =>
 
 builder.Services.AddSingleton<IPaymentRepository, PaymentRepository>();
 builder.Services.AddSingleton<IPaymentBusiness, PaymentBusiness>();
+
+builder.Services.AddSingleton<IMessageSubscriber, MessageSubscriber>();
 
 var app = builder.Build();
 
