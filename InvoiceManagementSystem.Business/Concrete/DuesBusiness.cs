@@ -4,6 +4,7 @@ using InvoiceManagementSystem.Core.Utilities.Result;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Concrete;
 using InvoiceManagementSystem.Entity.Entities.Dto;
+using InvoiceManagementSystem.Publishers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,12 +20,14 @@ namespace InvoiceManagementSystem.Business.Concrete
         private readonly IDuesRepository _duesRepository;
         private readonly IApartmentBusiness _apartmentBusiness;
         private readonly ISuiteBusiness _suiteBusiness;
+        private readonly IMessagePublisher _messagePublisher;
 
-        public DuesBusiness(IDuesRepository duesRepository, IApartmentBusiness apartmentBusiness, ISuiteBusiness suiteBusiness)
+        public DuesBusiness(IDuesRepository duesRepository, IApartmentBusiness apartmentBusiness, ISuiteBusiness suiteBusiness, IMessagePublisher messagePublisher)
         {
             _duesRepository = duesRepository;
             _apartmentBusiness = apartmentBusiness;
             _suiteBusiness = suiteBusiness;
+            _messagePublisher = messagePublisher;
         }
 
         public IDataResult<List<DuesDto>> PaidDebtList()
@@ -37,6 +40,7 @@ namespace InvoiceManagementSystem.Business.Concrete
                 {
                     duesList.Add(new DuesDto
                     {
+                        Id = item.Id,
                         IsPaid = item.IsPaid,
                         Amount = item.Amount,
                         BillingPeriod = item.BillingPeriod,
@@ -72,6 +76,7 @@ namespace InvoiceManagementSystem.Business.Concrete
                 {
                     newDuesList.Add(new DuesDto
                     {
+                        Id = item.Id,
                         IsPaid = item.IsPaid,
                         Amount = item.Amount,
                         BillingPeriod = item.BillingPeriod,
@@ -147,6 +152,7 @@ namespace InvoiceManagementSystem.Business.Concrete
                 {
                     duesList.Add(new DuesDto
                     {
+                        Id = item.Id,
                         IsPaid = item.IsPaid,
                         Amount = item.Amount,
                         BillingPeriod = item.BillingPeriod,
@@ -174,6 +180,18 @@ namespace InvoiceManagementSystem.Business.Concrete
                 return new SuccessResult("Fatura başarı ile güncellendi.");
             }
             return new ErrorResult("Fatura bulunamadı");
+        }
+
+        public IResult PayTheDue(DuesPaymentDto duesPaymentDto)
+        {
+            var dues = _duesRepository.Get(x => x.Id == duesPaymentDto.Id);
+            if (dues != null)
+            {
+                _messagePublisher. Publish(duesPaymentDto);
+                return new SuccessResult();
+            }
+
+            return new ErrorResult("Fatura bulunamadı.");
         }
     }
 }

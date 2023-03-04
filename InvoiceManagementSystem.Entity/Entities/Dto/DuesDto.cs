@@ -8,6 +8,7 @@ namespace InvoiceManagementSystem.Entity.Entities.Dto
 {
     public class DuesDto
     {
+        public int Id { get; set; }
         public bool IsPaid { get; set; }
         public string Type { get; set; }
         public string BillingPeriod { get; set; }
