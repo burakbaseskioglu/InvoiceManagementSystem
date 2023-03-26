@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceManagementSystemPaym
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceManagementSystem.Publishers", "InvoiceManagementSystem.Publishers\InvoiceManagementSystem.Publishers.csproj", "{9A0F3D07-22BF-419D-A6F6-D99B6855880B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManagementSystemPaymentApi.Subscriber", "InvoiceManagementSystemPaymentApi.Subscriber\InvoiceManagementSystemPaymentApi.Subscriber.csproj", "{30BDF31E-6C8A-4167-8AD5-12CC2EE73B31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceManagementSystemPaymentApi.Subscriber", "InvoiceManagementSystemPaymentApi.Subscriber\InvoiceManagementSystemPaymentApi.Subscriber.csproj", "{30BDF31E-6C8A-4167-8AD5-12CC2EE73B31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

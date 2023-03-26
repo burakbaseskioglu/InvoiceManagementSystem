@@ -17,7 +17,7 @@ namespace InvoiceManagementSystemPaymentApi.Repository.Concrete
         {
             _bucket = bucketProvider.GetBucketAsync("PaymentApi").GetAwaiter().GetResult();
             _collection = _bucket.Collection(collectionName);
-            _context= new BucketContext(_bucket);
+            _context = new BucketContext(_bucket);
         }
 
         public async Task DeleteAsync(string id)
@@ -30,9 +30,9 @@ namespace InvoiceManagementSystemPaymentApi.Repository.Concrete
             return _context.Query<T>().FirstOrDefault(filter);
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> filter)
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
-            return _context.Query<T>().Where(filter);
+            return filter == null ? _context.Query<T>() : _context.Query<T>().Where(filter);
         }
 
         public async Task InsertAsync(string id, T entity)

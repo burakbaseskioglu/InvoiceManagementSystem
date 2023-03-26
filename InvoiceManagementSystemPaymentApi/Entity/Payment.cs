@@ -10,5 +10,6 @@ namespace InvoiceManagementSystemPaymentApi.Entity
         public string BillingPeriod { get; set; }
         public decimal Amount { get; set; }
         public int SuiteId { get; set; }
+        public bool IsPaid { get; set; } = false;
     }
 }

@@ -16,10 +16,17 @@ namespace InvoiceManagementSystemPaymentApi.Controllers
         }
 
         [HttpPost("insert")]
-        public IActionResult Index(Payment payment)
+        public IActionResult Insert(Payment payment)
         {
             _paymentBusiness.Insert(payment);
             return Ok();
+        }
+
+        [HttpGet("getPay")]
+        public IActionResult Get()
+        {
+            var data = _paymentBusiness.GetPay();
+            return Ok(data);
         }
     }
 }
