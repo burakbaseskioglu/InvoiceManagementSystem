@@ -1,5 +1,4 @@
-﻿using InvoiceManagementSystemPaymentServices.Subscriber;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace InvoiceManagementSystem.Listener
 {
@@ -7,7 +6,7 @@ namespace InvoiceManagementSystem.Listener
     {
         public static IServiceProvider AddServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<IMessageSubscriber, MessageSubscriber>();
+            //serviceCollection.AddSingleton<IMessageSubscriber, MessageSubscriber>();
 
             serviceCollection.AddHttpClient("paymentApi", (client) =>
             {
