@@ -8,6 +8,6 @@ namespace InvoiceManagementSystemPaymentApi.Repository.Abstract
         Task UpdateAsync(string id, T entity);
         Task DeleteAsync(string id);
         T Get(Expression<Func<T, bool>> filter);
-        IQueryable<T> GetAll(Expression<Func<T, bool>> filter);
+        IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null);
     }
 }

@@ -1,8 +1,5 @@
-﻿using Couchbase.Linq;
-
-namespace InvoiceManagementSystemPaymentApi.Entity
+﻿namespace InvoiceManagementSystemPaymentServices.Listener
 {
-    [CouchbaseCollection("_default", "Payment")]
     public class Payment
     {
         public int Id { get; set; }
