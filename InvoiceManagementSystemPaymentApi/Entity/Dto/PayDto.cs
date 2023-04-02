@@ -1,7 +1,8 @@
 ﻿namespace InvoiceManagementSystemPaymentApi.Entity.Dto
 {
-    public class CardDto
+    public class PayDto
     {
+        public int BillId { get; set; }
         public string CardOwner { get; set; }
         public string CardNumber { get; set; }
         public int ExpireMonth { get; set; }
