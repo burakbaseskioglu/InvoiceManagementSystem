@@ -25,6 +25,8 @@ builder.Services.AddCouchbase(opt =>
 builder.Services.AddSingleton<IPaymentRepository, PaymentRepository>();
 builder.Services.AddSingleton<IPaymentBusiness, PaymentBusiness>();
 
+builder.Services.AddSingleton<ICardRepository, CardRepository>();
+
 builder.Services.AddSingleton<IMessageSubscriber, MessageSubscriber>();
 
 var app = builder.Build();
