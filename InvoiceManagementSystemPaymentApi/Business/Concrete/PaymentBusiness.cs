@@ -2,7 +2,6 @@
 using InvoiceManagementSystemPaymentApi.Entity;
 using InvoiceManagementSystemPaymentApi.Entity.Dto;
 using InvoiceManagementSystemPaymentApi.Repository.Abstract;
-using InvoiceManagementSystemPaymentApi.Utilities.Result;
 
 namespace InvoiceManagementSystemPaymentApi.Business.Concrete
 {
@@ -33,36 +32,34 @@ namespace InvoiceManagementSystemPaymentApi.Business.Concrete
             _paymentRepository.InsertAsync(payment.Id.ToString(), payment);
         }
 
-        public IDataResult<bool> Pay(CardDto cardDto, int billId)
+        public bool Pay(CardDto cardDto)
         {
-            var payment = _paymentRepository.Get(x => x.Id == billId);
-            if (payment != null)
-            {
-                var card = _cardRepository.Get(x => x.CardOwner.ToLower() == cardDto.CardOwner.ToLower() &&
+            var card = _cardRepository.Get(x => x.CardOwner.ToLower() == cardDto.CardOwner.ToLower() &&
                 x.CardNumber == cardDto.CardNumber &&
                 x.CvcCode == cardDto.CvcCode &&
                 x.ExpireMonth == cardDto.ExpireMonth &&
                 x.ExpireYear == cardDto.ExpireYear);
-
-                if (card != null)
-                {
-                    if (card.Balance > payment.Amount)
-                    {
-                        payment.IsPaid = true;
-                        _paymentRepository.UpdateAsync(payment.Id.ToString(), payment);
-                        card.Balance = card.Balance - payment.Amount;
-                        _cardRepository.UpdateAsync(card.Id.ToString(), card);
-                        return new SuccessDataResult<bool>(true, "Ödeme tamamlandı.");
-                    }
-                    else
-                    {
-                        return new ErrorDataResult<bool>("Bakiye yetersiz");
-                    }
-                }
-                return new ErrorDataResult<bool>("Kart bilgileri geçersiz.");
+            var payment = _paymentRepository.Get(x => x.Id == 1);
+            if (card != null)
+            {
+                payment.IsPaid = true;
+                _paymentRepository.UpdateAsync(payment.Id.ToString(), payment);
+                card.Balance = card.Balance - payment.Amount;
+                _cardRepository.UpdateAsync(card.Id.ToString(), card);
+                return true;
             }
 
-            return new ErrorDataResult<bool>("Fatura bulunamadı.");
+            return false;
         }
+    }
+
+    public class CardDto1
+    {
+        public string CardOwner { get; set; }
+        public string CardNumber { get; set; }
+        public int ExpireMonth { get; set; }
+        public int ExpireYear { get; set; }
+        public int CvcCode { get; set; }
+        public decimal Balance { get; set; }
     }
 }

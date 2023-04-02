@@ -7,5 +7,6 @@
         public int ExpireMonth { get; set; }
         public int ExpireYear { get; set; }
         public int CvcCode { get; set; }
+        public decimal Balance { get; set; }
     }
 }
