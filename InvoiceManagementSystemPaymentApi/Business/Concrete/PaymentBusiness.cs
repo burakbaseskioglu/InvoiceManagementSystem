@@ -3,6 +3,7 @@ using InvoiceManagementSystemPaymentApi.Entity;
 using InvoiceManagementSystemPaymentApi.Entity.Dto;
 using InvoiceManagementSystemPaymentApi.Repository.Abstract;
 using InvoiceManagementSystemPaymentApi.Utilities.Result;
+using IResult = InvoiceManagementSystemPaymentApi.Utilities.Result.IResult;
 
 namespace InvoiceManagementSystemPaymentApi.Business.Concrete
 {
@@ -17,20 +18,15 @@ namespace InvoiceManagementSystemPaymentApi.Business.Concrete
             _cardRepository = cardRepository;
         }
 
-        public Payment GetPay()
+        public IResult Insert(Payment payment)
         {
-            return _paymentRepository.GetAll().SingleOrDefault();
-        }
-
-        public void Insert(Payment payment)
-        {
-            //_messageSubscriber.ListenQueue("payment", (message) =>
-            //{
-            //    var jsonString = JsonConvert.DeserializeObject<Payment>(message);
-            //    _paymentRepository.InsertAsync(jsonString!.Id.ToString(), jsonString);
-            //});
-
-            _paymentRepository.InsertAsync(payment.Id.ToString(), payment);
+            var getPayment = _paymentRepository.Get(x => x.Id == payment.Id);
+            if (getPayment == null)
+            {
+                _paymentRepository.InsertAsync(payment.Id.ToString(), payment);
+                return new SuccessResult("Ödeme eklendi.");
+            }
+            return new ErrorResult("Ödeme zaten mevcut.");
         }
 
         public IDataResult<bool> Pay(CardDto cardDto, int billId)
@@ -48,16 +44,13 @@ namespace InvoiceManagementSystemPaymentApi.Business.Concrete
                 {
                     if (card.Balance > payment.Amount)
                     {
-                        payment.IsPaid = true;
-                        _paymentRepository.UpdateAsync(payment.Id.ToString(), payment);
                         card.Balance = card.Balance - payment.Amount;
                         _cardRepository.UpdateAsync(card.Id.ToString(), card);
+                        payment.IsPaid = true;
+                        _paymentRepository.UpdateAsync(payment.Id.ToString(), payment);
                         return new SuccessDataResult<bool>(true, "Ödeme tamamlandı.");
                     }
-                    else
-                    {
-                        return new ErrorDataResult<bool>("Bakiye yetersiz");
-                    }
+                    return new ErrorDataResult<bool>("Bakiye yetersiz");
                 }
                 return new ErrorDataResult<bool>("Kart bilgileri geçersiz.");
             }

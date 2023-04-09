@@ -32,9 +32,9 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<List<DuesDto>> PaidDebtList()
         {
-            var dues = _duesRepository.GetAllDuesWithType();
+            var dues = _duesRepository.GetAllPaidDebtList();
             var duesList = new List<DuesDto>();
-            if (dues.Count > 0)
+            if (dues.Any())
             {
                 foreach (var item in dues.Where(x => x.IsPaid))
                 {
@@ -68,9 +68,9 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<List<DuesDto>> GetAll()
         {
-            var duesList = _duesRepository.GetAllDuesWithType();
+            var duesList = _duesRepository.GetAllDebtList();
             var newDuesList = new List<DuesDto>();
-            if (duesList != null)
+            if (duesList.Any())
             {
                 foreach (var item in duesList)
                 {
@@ -131,6 +131,14 @@ namespace InvoiceManagementSystem.Business.Concrete
                             BillingPeriod = insertRangeDuesDto.BillingPeriod,
                             SuiteId = suite.SuiteId
                         });
+                        _messagePublisher.Publish<DuesPaymentDto>(new DuesPaymentDto
+                        {
+                            Id = suite.SuiteId,
+                            BillTypeId = insertRangeDuesDto.Type,
+                            Amount = insertRangeDuesDto.Amount,
+                            BillingPeriod = insertRangeDuesDto.BillingPeriod,
+                            SuiteId = suite.SuiteId
+                        });
                     }
                     return new SuccessResult("Otomatik fatura atamaları tamamlandı.");
                 }
@@ -144,11 +152,11 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public IDataResult<List<DuesDto>> UnpaidDebtList()
         {
-            var dues = _duesRepository.GetAllDuesWithType();
+            var dues = _duesRepository.GetAllUnpaidDebtList();
             var duesList = new List<DuesDto>();
             if (dues.Count > 0)
             {
-                foreach (var item in dues.Where(x => x.IsPaid == false))
+                foreach (var item in dues)
                 {
                     duesList.Add(new DuesDto
                     {
@@ -187,7 +195,7 @@ namespace InvoiceManagementSystem.Business.Concrete
             var dues = _duesRepository.Get(x => x.Id == duesPaymentDto.Id);
             if (dues != null)
             {
-                _messagePublisher. Publish(duesPaymentDto);
+                _messagePublisher.Publish(duesPaymentDto);
                 return new SuccessResult();
             }
 

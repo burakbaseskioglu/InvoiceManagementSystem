@@ -2,6 +2,8 @@
 using Couchbase.Extensions.DependencyInjection;
 using Couchbase.KeyValue;
 using Couchbase.Linq;
+using Couchbase.Transactions;
+using Couchbase.Transactions.Config;
 using InvoiceManagementSystemPaymentApi.Repository.Abstract;
 using System.Linq.Expressions;
 

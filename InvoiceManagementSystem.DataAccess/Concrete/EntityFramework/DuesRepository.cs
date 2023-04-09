@@ -13,11 +13,43 @@ namespace InvoiceManagementSystem.DataAccess.Concrete.EntityFramework
 {
     public class DuesRepository : EfRepository<Dues, AppDbContext>, IDuesRepository
     {
-        public List<DuesDto> GetAllDuesWithType()
+        public List<DuesDto> GetAllDebtList()
         {
             using (var context = new AppDbContext())
             {
                 var dues = context.Dues.Include(x => x.BillType).Where(x => x.IsActive).Select(y => new DuesDto
+                {
+                    IsPaid = y.IsPaid,
+                    Amount = y.Amount,
+                    BillingPeriod = y.BillingPeriod,
+                    SuiteId = y.SuiteId,
+                    Type = y.BillType.Type
+                });
+                return dues.ToList();
+            }
+        }
+
+        public List<DuesDto> GetAllPaidDebtList()
+        {
+            using (var context = new AppDbContext())
+            {
+                var dues = context.Dues.Include(x => x.BillType).Where(x => x.IsActive && x.IsPaid).Select(y => new DuesDto
+                {
+                    IsPaid = y.IsPaid,
+                    Amount = y.Amount,
+                    BillingPeriod = y.BillingPeriod,
+                    SuiteId = y.SuiteId,
+                    Type = y.BillType.Type
+                });
+                return dues.ToList();
+            }
+        }
+
+        public List<DuesDto> GetAllUnpaidDebtList()
+        {
+            using (var context = new AppDbContext())
+            {
+                var dues = context.Dues.Include(x => x.BillType).Where(x => x.IsActive && !x.IsPaid).Select(y => new DuesDto
                 {
                     IsPaid = y.IsPaid,
                     Amount = y.Amount,

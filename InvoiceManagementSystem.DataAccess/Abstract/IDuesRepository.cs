@@ -11,6 +11,8 @@ namespace InvoiceManagementSystem.DataAccess.Abstract
 {
     public interface IDuesRepository : IRepository<Dues>
     {
-        List<DuesDto> GetAllDuesWithType();
+        List<DuesDto> GetAllPaidDebtList();
+        List<DuesDto> GetAllUnpaidDebtList();
+        List<DuesDto> GetAllDebtList();
     }
 }

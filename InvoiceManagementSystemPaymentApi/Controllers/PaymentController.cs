@@ -19,18 +19,11 @@ namespace InvoiceManagementSystemPaymentApi.Controllers
         [HttpPost("insert")]
         public IActionResult Insert(Payment payment)
         {
-            _paymentBusiness.Insert(payment);
-            return Ok();
+            var result = _paymentBusiness.Insert(payment);
+            return Ok(result);
         }
 
-        [HttpGet("getPay")]
-        public IActionResult Get()
-        {
-            var data = _paymentBusiness.GetPay();
-            return Ok(data);
-        }
-
-        [HttpPost("{billId}")]
+        [HttpPost("pay/{billId}")]
         public IActionResult Pay(CardDto cardDto, int billId)
         {
             var result = _paymentBusiness.Pay(cardDto, billId);
