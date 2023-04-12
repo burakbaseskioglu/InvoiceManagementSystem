@@ -1,6 +1,7 @@
 using InvoiceManagementSystem.Business.Abstract;
 using InvoiceManagementSystem.Business.Concrete;
 using InvoiceManagementSystem.Core.Utilities.Security.JWT;
+using InvoiceManagementSystem.Core.Utilities.Service.HttpService;
 using InvoiceManagementSystem.DataAccess;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.DataAccess.Concrete.EntityFramework;
@@ -15,6 +16,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddHttpClient("paymentApi", opt =>
+{
+    opt.BaseAddress = new Uri("https://localhost:44381/api/");
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
@@ -71,6 +76,7 @@ builder.Services.AddScoped<IAuthBusiness, AuthBusiness>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddSingleton<IMessagePublisher, MessagePublisher>();
+builder.Services.AddScoped<IHttpService, HttpService>();
 
 builder.Services.AddAuthentication(opt =>
 {

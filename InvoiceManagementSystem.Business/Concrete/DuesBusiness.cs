@@ -1,6 +1,7 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
 using InvoiceManagementSystem.Core.Enums;
 using InvoiceManagementSystem.Core.Utilities.Result;
+using InvoiceManagementSystem.Core.Utilities.Service.HttpService;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Concrete;
 using InvoiceManagementSystem.Entity.Entities.Dto;
@@ -21,13 +22,15 @@ namespace InvoiceManagementSystem.Business.Concrete
         private readonly IApartmentBusiness _apartmentBusiness;
         private readonly ISuiteBusiness _suiteBusiness;
         private readonly IMessagePublisher _messagePublisher;
+        private readonly IHttpService _httpService;
 
-        public DuesBusiness(IDuesRepository duesRepository, IApartmentBusiness apartmentBusiness, ISuiteBusiness suiteBusiness, IMessagePublisher messagePublisher)
+        public DuesBusiness(IDuesRepository duesRepository, IApartmentBusiness apartmentBusiness, ISuiteBusiness suiteBusiness, IMessagePublisher messagePublisher, IHttpService httpService)
         {
             _duesRepository = duesRepository;
             _apartmentBusiness = apartmentBusiness;
             _suiteBusiness = suiteBusiness;
             _messagePublisher = messagePublisher;
+            _httpService = httpService;
         }
 
         public IDataResult<List<DuesDto>> PaidDebtList()
@@ -106,6 +109,14 @@ namespace InvoiceManagementSystem.Business.Concrete
                     BillingPeriod = insertDuesDto.BillingPeriod,
                     Amount = insertDuesDto.Amount,
                     SuiteId = insertDuesDto.SuiteId,
+                });
+                _messagePublisher.Publish<DuesPaymentDto>(new DuesPaymentDto
+                {
+                    Id = insertDuesDto.SuiteId,
+                    BillTypeId = insertDuesDto.Type,
+                    Amount = insertDuesDto.Amount,
+                    BillingPeriod = insertDuesDto.BillingPeriod,
+                    SuiteId = insertDuesDto.SuiteId
                 });
                 return new SuccessResult();
             }
@@ -197,6 +208,24 @@ namespace InvoiceManagementSystem.Business.Concrete
             {
                 _messagePublisher.Publish(duesPaymentDto);
                 return new SuccessResult();
+            }
+
+            return new ErrorResult("Fatura bulunamadı.");
+        }
+
+        public async Task<IResult> PayTheDueCard(CardDto cardDto, int billId)
+        {
+            //var dues = _duesRepository.Get(x => x.Id == duesPaymentDto.Id);
+            //if (dues != null)
+            //{
+            //    _messagePublisher.Publish(duesPaymentDto);
+            //    return new SuccessResult();
+            //}
+            var result = await _httpService.PostAsync("Payment/pay", cardDto, billId);
+
+            if (result)
+            {
+                return new SuccessResult("Ödeme başarı ile gerçekleşti.");
             }
 
             return new ErrorResult("Fatura bulunamadı.");

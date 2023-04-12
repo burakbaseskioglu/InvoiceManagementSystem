@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+namespace InvoiceManagementSystem.Core.Utilities.Service.HttpService
+{
+    public class HttpService : IHttpService
+    {
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public HttpService(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
+        public Task<T> DeleteAsync<T>(string url)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> GetAsync<T>(string url)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> PostAsync(string url, object data, object queryString = null)
+        {
+            try
+            {
+                HttpResponseMessage response;
+                var jsonData = JsonSerializer.Serialize(data);
+
+                var stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                var client = _httpClientFactory.CreateClient("paymentApi");
+
+                response = queryString != null ? await client.PostAsync($"{url}/{queryString}", stringContent) : await client.PostAsync($"{url}", stringContent);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
+        }
+
+        public Task<T> PutAsync<T>(string url, object data)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

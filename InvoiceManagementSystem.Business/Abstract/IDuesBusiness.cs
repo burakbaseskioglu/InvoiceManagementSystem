@@ -19,5 +19,6 @@ namespace InvoiceManagementSystem.Business.Abstract
         IResult Delete(int duesId);
         IDataResult<List<DuesDto>> GetAll();
         IResult PayTheDue(DuesPaymentDto duesPaymentDto);
+        Task<IResult> PayTheDueCard(CardDto cardDto, int billId);
     }
 }
