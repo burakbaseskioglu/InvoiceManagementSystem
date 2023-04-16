@@ -215,20 +215,14 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public async Task<IResult> PayTheDueCard(CardDto cardDto, int billId)
         {
-            //var dues = _duesRepository.Get(x => x.Id == duesPaymentDto.Id);
-            //if (dues != null)
-            //{
-            //    _messagePublisher.Publish(duesPaymentDto);
-            //    return new SuccessResult();
-            //}
             var result = await _httpService.PostAsync("Payment/pay", cardDto, billId);
 
-            if (result)
+            if (result.success)
             {
-                return new SuccessResult("Ödeme başarı ile gerçekleşti.");
+                return new SuccessResult(result.message);
             }
 
-            return new ErrorResult("Fatura bulunamadı.");
+            return new ErrorResult(result.message);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InvoiceManagementSystem.Core.Utilities.Result;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -27,7 +28,7 @@ namespace InvoiceManagementSystem.Core.Utilities.Service.HttpService
             throw new NotImplementedException();
         }
 
-        public async Task<bool> PostAsync(string url, object data, object queryString = null)
+        public async Task<HttpResult> PostAsync(string url, object data, object queryString = null)
         {
             try
             {
@@ -38,19 +39,14 @@ namespace InvoiceManagementSystem.Core.Utilities.Service.HttpService
                 var client = _httpClientFactory.CreateClient("paymentApi");
 
                 response = queryString != null ? await client.PostAsync($"{url}/{queryString}", stringContent) : await client.PostAsync($"{url}", stringContent);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    return true;
-                }
-                return false;
+                var result = await response.Content.ReadAsStringAsync();
+                var resultData = JsonSerializer.Deserialize<HttpResult>(result);
+                return resultData;
             }
             catch (Exception ex)
             {
-
                 throw;
             }
-           
         }
 
         public Task<T> PutAsync<T>(string url, object data)

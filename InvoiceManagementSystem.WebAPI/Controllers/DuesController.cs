@@ -65,7 +65,7 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         public async Task<IActionResult> Payy(CardDto cardDto, int billId)
         {
             var result = await _duesBusiness.PayTheDueCard(cardDto,billId);
-            return Ok(result.Message);
+            return Ok(result);
         }
     }
 }
