@@ -2,7 +2,6 @@
 using InvoiceManagementSystem.Core.Constant;
 using InvoiceManagementSystem.Core.Utilities.Attribute;
 using InvoiceManagementSystem.Entity.Entities.Dto;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceManagementSystem.WebAPI.Controllers
@@ -55,14 +54,8 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
             return Ok(_duesBusiness.Delete(duesId));
         }
 
-        [HttpPost("PayTheDues")]
-        public IActionResult Pay(DuesPaymentDto duesPaymentDto)
-        {
-            return Ok(_duesBusiness.PayTheDue(duesPaymentDto));
-        }
-
-        [HttpPost("PayTheDuess/{billId}")]
-        public async Task<IActionResult> Payy(CardDto cardDto, int billId)
+        [HttpPost("PayTheDues/{billId}")]
+        public async Task<IActionResult> Pay(CardDto cardDto, int billId)
         {
             var result = await _duesBusiness.PayTheDueCard(cardDto,billId);
             return Ok(result);

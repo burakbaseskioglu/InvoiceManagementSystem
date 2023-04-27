@@ -1,18 +1,10 @@
 ﻿using InvoiceManagementSystem.Business.Abstract;
-using InvoiceManagementSystem.Core.Enums;
 using InvoiceManagementSystem.Core.Utilities.Result;
 using InvoiceManagementSystem.Core.Utilities.Service.HttpService;
 using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Concrete;
 using InvoiceManagementSystem.Entity.Entities.Dto;
 using InvoiceManagementSystem.Publishers;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
@@ -110,7 +102,7 @@ namespace InvoiceManagementSystem.Business.Concrete
                     Amount = insertDuesDto.Amount,
                     SuiteId = insertDuesDto.SuiteId,
                 });
-                _messagePublisher.Publish<DuesPaymentDto>(new DuesPaymentDto
+                _messagePublisher.Publish<DuesPaymentDto>("payment", new DuesPaymentDto
                 {
                     Id = insertDuesDto.SuiteId,
                     BillTypeId = insertDuesDto.Type,
@@ -142,7 +134,7 @@ namespace InvoiceManagementSystem.Business.Concrete
                             BillingPeriod = insertRangeDuesDto.BillingPeriod,
                             SuiteId = suite.SuiteId
                         });
-                        _messagePublisher.Publish<DuesPaymentDto>(new DuesPaymentDto
+                        _messagePublisher.Publish<DuesPaymentDto>("payment", new DuesPaymentDto
                         {
                             Id = suite.SuiteId,
                             BillTypeId = insertRangeDuesDto.Type,
@@ -206,7 +198,7 @@ namespace InvoiceManagementSystem.Business.Concrete
             var dues = _duesRepository.Get(x => x.Id == duesPaymentDto.Id);
             if (dues != null)
             {
-                _messagePublisher.Publish(duesPaymentDto);
+                _messagePublisher.Publish("payment", duesPaymentDto);
                 return new SuccessResult();
             }
 

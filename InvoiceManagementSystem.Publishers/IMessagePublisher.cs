@@ -8,6 +8,6 @@ namespace InvoiceManagementSystem.Publishers
 {
     public interface IMessagePublisher
     {
-        void Publish<T>(T message);
+        void Publish<T>(string queueName, T message);
     }
 }

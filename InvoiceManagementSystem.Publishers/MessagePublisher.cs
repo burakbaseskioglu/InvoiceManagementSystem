@@ -10,18 +10,18 @@ namespace InvoiceManagementSystem.Publishers
 {
     public class MessagePublisher : IMessagePublisher
     {
-        public void Publish<T>(T message)
+        public void Publish<T>(string queueName, T message)
         {
             var factory = new ConnectionFactory { HostName = "localhost" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue:"payment", durable:false, exclusive:false, autoDelete:false, arguments:null);
+                channel.QueueDeclare(queue: queueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
 
                 var serializeMessage = JsonConvert.SerializeObject(message);
                 var messageBody = Encoding.UTF8.GetBytes(serializeMessage);
 
-                channel.BasicPublish(exchange: "", "payment", basicProperties: null, messageBody);
+                channel.BasicPublish(exchange: "", queueName, basicProperties: null, messageBody);
             }
         }
     }
