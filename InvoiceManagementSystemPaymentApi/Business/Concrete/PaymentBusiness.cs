@@ -51,11 +51,6 @@ namespace InvoiceManagementSystemPaymentApi.Business.Concrete
                         _cardRepository.UpdateAsync(card.Id.ToString(), card);
                         payment.IsPaid = true;
                         _paymentRepository.UpdateAsync(payment.Id.ToString(), payment);
-                        _messagePublisher.Publish<DuesDto>("duesVerify", new DuesDto
-                        {
-                            Id = payment.Id,
-                            IsPaid = payment.IsPaid
-                        });
                         return new SuccessDataResult<bool>(true, "Ödeme tamamlandı.");
                     }
                     return new ErrorDataResult<bool>("Bakiye yetersiz");

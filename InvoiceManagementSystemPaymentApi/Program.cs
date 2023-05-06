@@ -1,5 +1,6 @@
 using Couchbase.Extensions.DependencyInjection;
 using Couchbase.Linq;
+using InvoiceManagementSystem.Publishers;
 using InvoiceManagementSystemPaymentApi.Business.Abstract;
 using InvoiceManagementSystemPaymentApi.Business.Concrete;
 using InvoiceManagementSystemPaymentApi.Repository.Abstract;
@@ -28,6 +29,7 @@ builder.Services.AddSingleton<IPaymentBusiness, PaymentBusiness>();
 builder.Services.AddSingleton<ICardRepository, CardRepository>();
 
 builder.Services.AddSingleton<IMessageSubscriber, MessageSubscriber>();
+builder.Services.AddSingleton<IMessagePublisher, MessagePublisher>();
 
 var app = builder.Build();
 

@@ -102,9 +102,10 @@ namespace InvoiceManagementSystem.Business.Concrete
                     Amount = insertDuesDto.Amount,
                     SuiteId = insertDuesDto.SuiteId,
                 });
+                var getInsertDues = _duesRepository.Get(x => x.IsActive && x.SuiteId == insertDuesDto.SuiteId);
                 _messagePublisher.Publish<DuesPaymentDto>("payment", new DuesPaymentDto
                 {
-                    Id = insertDuesDto.SuiteId,
+                    Id = getInsertDues.Id,
                     BillTypeId = insertDuesDto.Type,
                     Amount = insertDuesDto.Amount,
                     BillingPeriod = insertDuesDto.BillingPeriod,
@@ -134,9 +135,10 @@ namespace InvoiceManagementSystem.Business.Concrete
                             BillingPeriod = insertRangeDuesDto.BillingPeriod,
                             SuiteId = suite.SuiteId
                         });
+                        var dues = _duesRepository.Get(x => x.IsActive && x.SuiteId == suite.SuiteId);
                         _messagePublisher.Publish<DuesPaymentDto>("payment", new DuesPaymentDto
                         {
-                            Id = suite.SuiteId,
+                            Id = dues.Id,
                             BillTypeId = insertRangeDuesDto.Type,
                             Amount = insertRangeDuesDto.Amount,
                             BillingPeriod = insertRangeDuesDto.BillingPeriod,
@@ -211,6 +213,10 @@ namespace InvoiceManagementSystem.Business.Concrete
 
             if (result.success)
             {
+                var dues = _duesRepository.Get(x => x.Id == billId);
+                dues.IsPaid = true;
+                dues.IsActive = false;
+                _duesRepository.Update(dues);
                 return new SuccessResult(result.message);
             }
 
