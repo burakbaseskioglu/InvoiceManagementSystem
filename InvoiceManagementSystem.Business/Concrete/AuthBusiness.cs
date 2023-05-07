@@ -37,12 +37,16 @@ namespace InvoiceManagementSystem.Business.Concrete
                     SignInResult signinResult = await _signInManager.PasswordSignInAsync(findUser, userLoginDto.Password, false, true);
                     if (signinResult.Succeeded)
                     {
+                        var userRoles = await _userManager.GetRolesAsync(findUser);
                         var claims = new List<Claim>
-                    {
-                        new(ClaimTypes.Name, $"{user.Firstname} {user.Lastname}"),
-                        new(ClaimTypes.Email, user.Email),
-                        new(ClaimTypes.Role, "Management")
-                    };
+                        {
+                            new(ClaimTypes.Name, $"{user.Firstname} {user.Lastname}"),
+                            new(ClaimTypes.Email, user.Email),
+                        };
+                        foreach (var role in userRoles)
+                        {
+                            claims.Add(new(ClaimTypes.Role, role));
+                        }
 
                         var createToken = _tokenService.CreateAccessToken(claims);
                         var token = new AccessToken

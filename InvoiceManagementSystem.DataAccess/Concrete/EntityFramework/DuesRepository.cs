@@ -17,8 +17,9 @@ namespace InvoiceManagementSystem.DataAccess.Concrete.EntityFramework
         {
             using (var context = new AppDbContext())
             {
-                var dues = context.Dues.Include(x => x.BillType).Where(x => x.IsActive).Select(y => new DuesDto
+                var dues = context.Dues.Include(x => x.BillType).Select(y => new DuesDto
                 {
+                    Id = y.Id,
                     IsPaid = y.IsPaid,
                     Amount = y.Amount,
                     BillingPeriod = y.BillingPeriod,
@@ -33,8 +34,9 @@ namespace InvoiceManagementSystem.DataAccess.Concrete.EntityFramework
         {
             using (var context = new AppDbContext())
             {
-                var dues = context.Dues.Include(x => x.BillType).Where(x => x.IsActive && x.IsPaid).Select(y => new DuesDto
+                var dues = context.Dues.Include(x => x.BillType).Where(x => x.IsPaid).Select(y => new DuesDto
                 {
+                    Id = y.Id,
                     IsPaid = y.IsPaid,
                     Amount = y.Amount,
                     BillingPeriod = y.BillingPeriod,
@@ -49,8 +51,9 @@ namespace InvoiceManagementSystem.DataAccess.Concrete.EntityFramework
         {
             using (var context = new AppDbContext())
             {
-                var dues = context.Dues.Include(x => x.BillType).Where(x => x.IsActive && !x.IsPaid).Select(y => new DuesDto
+                var dues = context.Dues.Include(x => x.BillType).Where(x => !x.IsPaid).Select(y => new DuesDto
                 {
+                    Id = y.Id,
                     IsPaid = y.IsPaid,
                     Amount = y.Amount,
                     BillingPeriod = y.BillingPeriod,
