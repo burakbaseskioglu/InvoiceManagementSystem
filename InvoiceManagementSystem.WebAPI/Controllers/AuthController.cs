@@ -29,5 +29,11 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
         {
             return Ok(await _authBusiness.Login(userLoginDto));
         }
+
+        [HttpPost("verifyRefreshToken")]
+        public async Task<IActionResult> TryToLogin(string refreshToken)
+        {
+            return Ok(await _authBusiness.TokenControl(refreshToken));
+        }
     }
 }

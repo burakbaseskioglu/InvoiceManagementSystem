@@ -112,17 +112,24 @@ namespace InvoiceManagementSystem.Business.Concrete
             }
         }
 
-        public IDataResult<AccessToken> TokenControl(string refreshToken)
+        public async Task<IDataResult<AccessToken>> TokenControl(string refreshToken)
         {
             var userToken = _userRepository.Get(x => x.IsActive && x.RefreshToken == refreshToken && x.ExpireDate > DateTime.Now);
             if (userToken != null)
             {
+                var user = await _userManager.FindByEmailAsync(userToken.Email);
+                var userRoles = await _userManager.GetRolesAsync(user);
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, $"{userToken.Firstname} {userToken.Lastname}"),
                     new Claim(ClaimTypes.Email, userToken.Email),
-                    new Claim(ClaimTypes.Role, "Management")
                 };
+
+                foreach (var role in userRoles)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, role));
+                }
+
                 var token = _tokenService.CreateAccessToken(claims);
                 if (token != null)
                 {
@@ -131,11 +138,14 @@ namespace InvoiceManagementSystem.Business.Concrete
             }
             else
             {
-                userToken.RefreshToken = null;
-                userToken.ExpireDate = null;
-                _userRepository.Update(userToken);
+                var newUserToken = new User
+                {
+                    RefreshToken = null,
+                    ExpireDate = null
+                };
+                _userRepository.Update(newUserToken);
             }
-            return new ErrorDataResult<AccessToken>("Hata");
+            return new ErrorDataResult<AccessToken>("Lütfen tekrar giriş yapınız.");
         }
     }
 }

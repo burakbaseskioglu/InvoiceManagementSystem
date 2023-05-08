@@ -13,6 +13,6 @@ namespace InvoiceManagementSystem.Business.Abstract
     {
         Task<IDataResult<AccessToken>> Login(UserLoginDto userLoginDto);
         Task<IResult> Register(UserRegisterDto userRegisterDto);
-        IDataResult<AccessToken> TokenControl(string refreshToken);
+        Task<IDataResult<AccessToken>> TokenControl(string refreshToken);
     }
 }
