@@ -8,6 +8,7 @@ using InvoiceManagementSystem.Entity.Entities.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
@@ -117,8 +118,8 @@ namespace InvoiceManagementSystem.Business.Concrete
             var userToken = _userRepository.Get(x => x.IsActive && x.RefreshToken == refreshToken && x.ExpireDate > DateTime.Now);
             if (userToken != null)
             {
-                var user = await _userManager.FindByEmailAsync(userToken.Email);
-                var userRoles = await _userManager.GetRolesAsync(user);
+                var userManager = await _userManager.FindByEmailAsync(userToken.Email);
+                var userRoles = await _userManager.GetRolesAsync(userManager);
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, $"{userToken.Firstname} {userToken.Lastname}"),
@@ -131,6 +132,10 @@ namespace InvoiceManagementSystem.Business.Concrete
                 }
 
                 var token = _tokenService.CreateAccessToken(claims);
+                var user = _userRepository.Get(x => x.Email == userToken.Email);
+                var newRefreshToken = _tokenService.CreateRefreshToken();
+                user.RefreshToken = newRefreshToken.Token;
+                user.ExpireDate = newRefreshToken.ExpireDate;
                 if (token != null)
                 {
                     return new SuccessDataResult<AccessToken>(token);
@@ -138,12 +143,10 @@ namespace InvoiceManagementSystem.Business.Concrete
             }
             else
             {
-                var newUserToken = new User
-                {
-                    RefreshToken = null,
-                    ExpireDate = null
-                };
-                _userRepository.Update(newUserToken);
+                var expiredRefreshToken = _userRepository.Get(x => x.RefreshToken == refreshToken);
+                expiredRefreshToken.RefreshToken = null;
+                expiredRefreshToken.ExpireDate = null;
+                _userRepository.Update(expiredRefreshToken);
             }
             return new ErrorDataResult<AccessToken>("Lütfen tekrar giriş yapınız.");
         }
