@@ -5,6 +5,7 @@ using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Concrete;
 using InvoiceManagementSystem.Entity.Entities.Dto;
 using InvoiceManagementSystem.Publishers;
+using Microsoft.AspNetCore.Http;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
@@ -15,14 +16,16 @@ namespace InvoiceManagementSystem.Business.Concrete
         private readonly ISuiteBusiness _suiteBusiness;
         private readonly IMessagePublisher _messagePublisher;
         private readonly IHttpService _httpService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public DuesBusiness(IDuesRepository duesRepository, IApartmentBusiness apartmentBusiness, ISuiteBusiness suiteBusiness, IMessagePublisher messagePublisher, IHttpService httpService)
+        public DuesBusiness(IDuesRepository duesRepository, IApartmentBusiness apartmentBusiness, ISuiteBusiness suiteBusiness, IMessagePublisher messagePublisher, IHttpService httpService, IHttpContextAccessor httpContextAccessor)
         {
             _duesRepository = duesRepository;
             _apartmentBusiness = apartmentBusiness;
             _suiteBusiness = suiteBusiness;
             _messagePublisher = messagePublisher;
             _httpService = httpService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public IDataResult<List<DuesDto>> PaidDebtList()
@@ -209,6 +212,8 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public async Task<IResult> PayTheDueCard(CardDto cardDto, int billId)
         {
+            var headers = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
+
             var result = await _httpService.PostAsync("Payment/pay", cardDto, billId);
 
             if (result.success)

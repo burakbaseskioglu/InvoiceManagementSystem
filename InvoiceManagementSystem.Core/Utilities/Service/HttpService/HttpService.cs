@@ -28,7 +28,7 @@ namespace InvoiceManagementSystem.Core.Utilities.Service.HttpService
             throw new NotImplementedException();
         }
 
-        public async Task<HttpResult> PostAsync(string url, object data, object queryString = null)
+        public async Task<HttpResult> PostAsync(string url, object data, object queryString = null, string token = null)
         {
             try
             {

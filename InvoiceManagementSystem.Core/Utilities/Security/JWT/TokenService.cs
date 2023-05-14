@@ -14,7 +14,7 @@ namespace InvoiceManagementSystem.Core.Utilities.Security.JWT
     public class TokenService : ITokenService
     {
         private readonly IConfiguration Configuration;
-        private readonly DateTime tokenExpireDate = DateTime.Now.AddMinutes(1);
+        private readonly DateTime tokenExpireDate = DateTime.Now.AddMinutes(20);
 
         public TokenService(IConfiguration configuration)
         {
@@ -53,7 +53,7 @@ namespace InvoiceManagementSystem.Core.Utilities.Security.JWT
             return new RefreshToken
             {
                 Token = refreshToken,
-                ExpireDate = tokenExpireDate.AddMinutes(1)
+                ExpireDate = tokenExpireDate.AddMinutes(5)
             };
         }
     }
