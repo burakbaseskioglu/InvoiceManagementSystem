@@ -1,12 +1,15 @@
 ﻿using InvoiceManagementSystemPaymentApi.Business.Abstract;
 using InvoiceManagementSystemPaymentApi.Entity;
 using InvoiceManagementSystemPaymentApi.Entity.Dto;
+using InvoiceManagementSystemPaymentApi.Utilities.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceManagementSystemPaymentApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [AuthorizeRoles("User")]
     public class PaymentController : Controller
     {
         private readonly IPaymentBusiness _paymentBusiness;

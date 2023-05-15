@@ -212,9 +212,9 @@ namespace InvoiceManagementSystem.Business.Concrete
 
         public async Task<IResult> PayTheDueCard(CardDto cardDto, int billId)
         {
-            var headers = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
+            var authorizationHeaders = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
 
-            var result = await _httpService.PostAsync("Payment/pay", cardDto, billId);
+            var result = await _httpService.PostAsync("Payment/pay", cardDto, billId, authorizationHeaders);
 
             if (result.success)
             {

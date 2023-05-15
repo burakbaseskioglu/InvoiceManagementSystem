@@ -1,11 +1,5 @@
-﻿using InvoiceManagementSystem.Core.Utilities.Result;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace InvoiceManagementSystem.Core.Utilities.Service.HttpService
 {
@@ -37,7 +31,7 @@ namespace InvoiceManagementSystem.Core.Utilities.Service.HttpService
 
                 var stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
                 var client = _httpClientFactory.CreateClient("paymentApi");
-
+                client.DefaultRequestHeaders.Add("Authorization", $"{token}");
                 response = queryString != null ? await client.PostAsync($"{url}/{queryString}", stringContent) : await client.PostAsync($"{url}", stringContent);
                 var result = await response.Content.ReadAsStringAsync();
                 var resultData = JsonSerializer.Deserialize<HttpResult>(result);
