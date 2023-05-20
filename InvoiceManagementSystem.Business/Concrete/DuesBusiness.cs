@@ -5,7 +5,10 @@ using InvoiceManagementSystem.DataAccess.Abstract;
 using InvoiceManagementSystem.Entity.Entities.Concrete;
 using InvoiceManagementSystem.Entity.Entities.Dto;
 using InvoiceManagementSystem.Publishers;
+using IronXL;
+using IronXL.Styles;
 using Microsoft.AspNetCore.Http;
+using System.Data;
 
 namespace InvoiceManagementSystem.Business.Concrete
 {
@@ -14,11 +17,21 @@ namespace InvoiceManagementSystem.Business.Concrete
         private readonly IDuesRepository _duesRepository;
         private readonly IApartmentBusiness _apartmentBusiness;
         private readonly ISuiteBusiness _suiteBusiness;
+        private readonly ISuiteRepository _suiteRepository;
         private readonly IMessagePublisher _messagePublisher;
         private readonly IHttpService _httpService;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IUserRepository _userRepository;
 
-        public DuesBusiness(IDuesRepository duesRepository, IApartmentBusiness apartmentBusiness, ISuiteBusiness suiteBusiness, IMessagePublisher messagePublisher, IHttpService httpService, IHttpContextAccessor httpContextAccessor)
+        public DuesBusiness(
+            IDuesRepository duesRepository,
+            IApartmentBusiness apartmentBusiness,
+            ISuiteBusiness suiteBusiness,
+            IMessagePublisher messagePublisher,
+            IHttpService httpService,
+            IHttpContextAccessor httpContextAccessor,
+            ISuiteRepository suiteRepository,
+            IUserRepository userRepository)
         {
             _duesRepository = duesRepository;
             _apartmentBusiness = apartmentBusiness;
@@ -26,6 +39,8 @@ namespace InvoiceManagementSystem.Business.Concrete
             _messagePublisher = messagePublisher;
             _httpService = httpService;
             _httpContextAccessor = httpContextAccessor;
+            _suiteRepository = suiteRepository;
+            _userRepository = userRepository;
         }
 
         public IDataResult<List<DuesDto>> PaidDebtList()
@@ -226,6 +241,66 @@ namespace InvoiceManagementSystem.Business.Concrete
             }
 
             return new ErrorResult(result.message);
+        }
+
+        public IDataResult<Stream> ExcelTest()
+        {
+            var query = (from dues in _duesRepository.GetAll()
+                         join suite in _suiteRepository.GetAll() on dues.SuiteId equals suite.Id
+                         join user in _userRepository.GetAll() on suite.UserId equals user.Id
+                         select new DuesDetailDto
+                         {
+                             User = $"{user.Firstname} {user.Lastname}",
+                             Suite = suite.Id,
+                             Period = dues.BillingPeriod,
+                             Amount = dues.Amount,
+                         }).ToList();
+
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.AddRange(new DataColumn[4]
+            {
+                new DataColumn("Kullanıcı", typeof(string)),
+                new DataColumn("Daire", typeof(int)),
+                new DataColumn("Dönem", typeof(string)),
+                new DataColumn("Tutar", typeof(decimal))
+            });
+
+            foreach (var item in query)
+            {
+                dataTable.Rows.Add(item.User, item.Suite, item.Period, item.Amount);
+            }
+
+            WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
+            
+            workSheet["A1"].Value = "Kullanıcı";
+            workSheet["B1"].Value = "Daire";
+            workSheet["C1"].Value = "Dönem";
+            workSheet["D1"].Value = "Tutar";
+            
+            
+            
+            int rowCount = 2;
+            
+            foreach (DataRow item in dataTable.Rows)
+            {
+                workSheet["A" + rowCount].Value = item["Kullanıcı"].ToString();
+                workSheet["B" + rowCount].Value= item["Daire"].ToString();
+                workSheet["C" + rowCount].Value = item["Dönem"].ToString();
+                workSheet["D" + rowCount].Value = item["Tutar"].ToString();
+                rowCount++;
+            }
+
+            workSheet.AutoSizeColumn(0);
+            workSheet.AutoSizeColumn(1);
+            workSheet.AutoSizeColumn(2);
+            workSheet.AutoSizeColumn(3);
+
+            var rowTableCount = dataTable.Rows.Count;
+            workSheet.AddNamedTable("test", workSheet.GetRange($"A1:D{rowTableCount}"), true, TableStyle.TableStyleLight10);
+
+
+            return new SuccessDataResult<Stream>(workBook.ToStream());
         }
     }
 }

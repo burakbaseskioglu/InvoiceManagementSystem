@@ -60,5 +60,13 @@ namespace InvoiceManagementSystem.WebAPI.Controllers
             var result = await _duesBusiness.PayTheDueCard(cardDto,billId);
             return Ok(result);
         }
+
+        [HttpPost("downloadExcel")]
+        public IActionResult DownloadExcel()
+        {
+            var result = _duesBusiness.ExcelTest();
+
+            return File(result.Data, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","test.xlsx");
+        }
     }
 }

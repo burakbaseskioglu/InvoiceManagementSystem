@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="IronXL.Excel" Version="2023.5.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\InvoiceManagementSystem.DataAccess\InvoiceManagementSystem.DataAccess.csproj" />
     <ProjectReference Include="..\InvoiceManagementSystem.Entity\InvoiceManagementSystem.Entity.csproj" />
     <ProjectReference Include="..\InvoiceManagementSystem.Publishers\InvoiceManagementSystem.Publishers.csproj" />
