@@ -272,24 +272,36 @@ namespace InvoiceManagementSystem.Business.Concrete
 
             WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
             WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            workSheet["A1"].Value = "Kullanıcı";
-            workSheet["B1"].Value = "Daire";
+
+            workSheet["A1"].Value = "Ev Sahibi";
+            workSheet["B1"].Value = "Daire No";
             workSheet["C1"].Value = "Dönem";
             workSheet["D1"].Value = "Tutar";
-            
-            
-            
+
+            workSheet[$"A1:D1"].Style.SetBackgroundColor("#d3d3d3");
+            workSheet[$"A1:{dataTable.Rows.Count + 1}"].Style.TopBorder.SetColor("#000000");
+            workSheet[$"A1:{dataTable.Rows.Count + 1}"].Style.BottomBorder.SetColor("#000000");
+            workSheet[$"A1:{dataTable.Rows.Count + 1}"].Style.RightBorder.SetColor("#000000");
+            workSheet[$"A1:{dataTable.Rows.Count + 1}"].Style.LeftBorder.SetColor("#000000");
+            workSheet[$"A1:{dataTable.Rows.Count + 1}"].Style.TopBorder.Type = BorderType.Thin;
+            workSheet[$"A1:{dataTable.Rows.Count + 1}"].Style.BottomBorder.Type = BorderType.Thin;
+            workSheet[$"A1:{dataTable.Rows.Count + 1}"].Style.RightBorder.Type = BorderType.Thin;
+            workSheet[$"A1:{dataTable.Rows.Count + 1}"].Style.LeftBorder.Type = BorderType.Thin;
             int rowCount = 2;
-            
-            foreach (DataRow item in dataTable.Rows)
-            {
-                workSheet["A" + rowCount].Value = item["Kullanıcı"].ToString();
-                workSheet["B" + rowCount].Value= item["Daire"].ToString();
-                workSheet["C" + rowCount].Value = item["Dönem"].ToString();
-                workSheet["D" + rowCount].Value = item["Tutar"].ToString();
-                rowCount++;
-            }
+
+            //foreach (DataRow item in dataTable.Rows)
+            //{
+            //    workSheet["A" + rowCount].Value = item["Kullanıcı"].ToString();
+            //    workSheet["B" + rowCount].Value = item["Daire"].ToString();
+            //    workSheet["C" + rowCount].Value = item["Dönem"].ToString();
+            //    workSheet["D" + rowCount].Value = item["Tutar"].ToString();
+            //    rowCount++;
+            //}
+
+            workSheet.Columns[0].Style.ShrinkToFit = true;
+            workSheet.Columns[1].Style.ShrinkToFit = true;
+            workSheet.Columns[2].Style.ShrinkToFit = true;
+            workSheet.Columns[3].Style.ShrinkToFit = true;
 
             workSheet.AutoSizeColumn(0);
             workSheet.AutoSizeColumn(1);
